@@ -18,10 +18,10 @@ const HeroIntro = () => {
           <div className="md:col-span-2 space-y-6">
             <div>
               <h1 className="text-6xl md:text-8xl font-display font-light tracking-tight text-foreground leading-none">
-                Your Name
+                Zubayer Alam
               </h1>
               <p className="font-mono text-xs text-muted-foreground mt-3 tracking-wide">
-                /jɔːr neɪm/ <span className="italic">(noun)</span> — a person who writes code for a living
+                /zubayer.alam/ <span className="italic">(noun)</span> — a person who writes code for a living
                 and debugs it for free
               </p>
             </div>
@@ -40,16 +40,16 @@ const HeroIntro = () => {
             </div>
 
             <div className="flex gap-6 pt-2">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
+              <a href="https://github.com/zubayeralam" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
                 GitHub
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
+              <a href="https://linkedin.com/in/zubayeralam" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
                 LinkedIn
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
+              <a href="https://twitter.com/zubayerhimel0" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
                 Twitter/X
               </a>
-              <a href="mailto:hello@example.com" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
+              <a href="mailto:zubayerhimel0@gmail.com" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
                 Email
               </a>
             </div>
