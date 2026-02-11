@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { blogs } from "@/data/blogs";
+
 const thoughts = [
   {
     text: "The best code is the code you never have to write. The second best is the code someone else maintains.",
@@ -10,27 +13,6 @@ const thoughts = [
   },
   {
     text: "Reading documentation is a superpower. Most bugs are just unread README files.",
-  },
-];
-
-const blogs = [
-  {
-    title: "Why I Stopped Using State Management Libraries",
-    date: "Jan 2026",
-    excerpt: "React's built-in state is enough for 90% of apps. Here's why I dropped Redux and never looked back.",
-    link: "#",
-  },
-  {
-    title: "The Art of Writing Clean Commit Messages",
-    date: "Dec 2025",
-    excerpt: "Your git log is a story. Make it worth reading.",
-    link: "#",
-  },
-  {
-    title: "Building for Yourself First",
-    date: "Nov 2025",
-    excerpt: "Every good product I've built started as something I personally needed.",
-    link: "#",
   },
 ];
 
@@ -63,9 +45,9 @@ const ThoughtsAndBlogsSection = () => {
 
         <div className="space-y-0">
           {blogs.map((blog, i) => (
-            <a
+            <Link
               key={i}
-              href={blog.link}
+              to={`/blog/${blog.slug}`}
               className="border-t border-border py-8 grid grid-cols-1 md:grid-cols-4 gap-4 group block hover:bg-card transition-colors -mx-6 px-6"
             >
               <div className="md:col-span-1">
@@ -80,7 +62,7 @@ const ThoughtsAndBlogsSection = () => {
                   {blog.excerpt}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
           <div className="border-t border-border" />
         </div>
