@@ -7,7 +7,7 @@ const ISTClock = () => {
     const update = () => {
       const now = new Date();
       const ist = new Intl.DateTimeFormat("en-IN", {
-        timeZone: "Asia/Kolkata",
+        timeZone: "Asia/Dhaka",
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
@@ -22,7 +22,7 @@ const ISTClock = () => {
 
   return (
     <div className="fixed top-6 right-6 z-50 font-mono text-xs tracking-widest text-muted-foreground">
-      <span className="opacity-50">IST</span>{" "}
+      <span className="opacity-50">BST</span>{" "}
       <span>{time}</span>
     </div>
   );

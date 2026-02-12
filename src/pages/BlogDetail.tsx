@@ -1,7 +1,8 @@
-import { useParams, Link } from "react-router-dom";
 import { blogs } from "@/data/blogs";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
+import { Link, useParams } from "react-router-dom";
 import remarkGfm from "remark-gfm";
 
 // Custom renderer for code blocks
@@ -44,6 +45,10 @@ const BlogDetail = () => {
 
   const suggestedBlogs = blogs.filter((b) => b.slug !== slug).slice(0, 2);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="bg-background text-foreground min-h-screen">
       <article className="container max-w-3xl mx-auto px-6 py-16 md:py-24">
@@ -66,7 +71,7 @@ const BlogDetail = () => {
           <h1 className="font-display text-4xl md:text-6xl font-light text-foreground leading-tight">
             {blog.title}
           </h1>
-          <p className="font-body text-lg text-muted-foreground mt-6 leading-relaxed max-w-2xl">
+          <p className="font-body text-body text-muted-foreground mt-6 leading-relaxed max-w-2xl">
             {blog.excerpt}
           </p>
         </header>
@@ -74,7 +79,7 @@ const BlogDetail = () => {
         <div className="section-divider mb-16" />
 
         {/* Content */}
-        <div className="font-body text-base text-foreground/85 leading-[1.8]">
+        <div className="font-body text-base text-foreground/85 dark:text-foreground/65 leading-[1.8]">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{

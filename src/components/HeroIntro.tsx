@@ -21,21 +21,22 @@ const HeroIntro = () => {
                 Zubayer Alam
               </h1>
               <p className="font-mono text-xs text-muted-foreground mt-3 tracking-wide">
-                /zubayer.alam/ <span className="italic">(noun)</span> — a person who writes code for a living
-                and debugs it for free
+                Senior Software Engineer · Frontend Specialist
               </p>
             </div>
 
             <div className="border-l-2 border-foreground pl-6 space-y-3 max-w-lg">
               <p className="font-body text-sm leading-relaxed text-foreground">
-                <span className="font-display text-lg italic">Software Developer</span> — someone who
-                convinces machines to do things, occasionally successfully. Known to mass‑produce side
-                projects that never see production.
+                <span className="font-display text-lg italic">Building exceptional web experiences</span> — I craft
+                performant, accessible, and user-centric applications with modern JavaScript frameworks.
+                My expertise spans React, Next.js, and Vue.js, with solid backend capabilities to deliver
+                full-stack solutions.
               </p>
-              <p className="font-body text-xs text-muted-foreground leading-relaxed">
-                Based out of wherever the WiFi is strong. Previously confused at multiple startups.
-                Currently shipping things that (mostly) work. Fueled by caffeine and unreasonable
-                optimism.
+              <p className="font-body text-sm text-foreground leading-relaxed">
+                With years of experience shipping production-grade software, I focus on writing clean,
+                maintainable code and creating intuitive interfaces that users love. Passionate about
+                developer experience, performance optimization, and staying current with the evolving
+                frontend ecosystem.
               </p>
             </div>
 

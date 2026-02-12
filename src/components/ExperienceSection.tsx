@@ -3,21 +3,22 @@ import { useState } from "react";
 const experiences = [
   {
     role: "Senior Software Engineer",
-    company: "Company Name",
-    period: "2023 — Present",
-    description: "Building scalable distributed systems. Leading a team of engineers to ship features that impact millions.",
+    company: "Hogarth Worldwide",
+    period: "May 2025 — Present",
+    description: "Working as a frontend developer across multiple projects, building responsive and reusable user interfaces using modern JavaScript frameworks and Drupal’s theming system. Contributed to improving frontend architecture, performance, and development workflows. Collaborated closely with designers, backend developers, and stakeholders to deliver accessible, maintainable, and scalable web experiences.",
   },
   {
     role: "Software Engineer",
-    company: "Another Startup",
-    period: "2021 — 2023",
-    description: "Full-stack development with React and Node.js. Reduced API latency by 40% through aggressive caching strategies.",
+    company: "V2 Technologies Ltd.",
+    period: "Feb 2021 — April 2025",
+    description:
+      "Experienced frontend and full-stack developer with strong expertise in modern JavaScript frameworks including Next.js, React.js, and Vue.js, with a focus on building scalable, high-performance web applications.\n\nProven experience integrating RESTful APIs for dynamic data rendering and developing enterprise-grade CRM and SaaS solutions for clients such as BATB and Unilever. Implemented custom role-based access control (RBAC), secure authentication and authorization workflows using JWT, and middleware for validation and security.\n\nActively optimized application performance through lazy loading, asynchronous data fetching, and the use of React Query. Led and managed a SaaS product for a German client, including frontend architecture, team coordination, and delivery. Experienced in data visualization using Plotly, payment gateway integrations (bKash, SSLCOMMERZ, Paystack), and backend development with Express.js, NestJS, and Convex to ensure reliable, responsive APIs.",
   },
   {
-    role: "Junior Developer",
-    company: "First Job Inc.",
+    role: "Software Engineer",
+    company: "Team Tigers - Startup",
     period: "2019 — 2021",
-    description: "Started as an intern, ended as the person who knew where all the bugs were hidden. Built internal tools that actually got used.",
+    description: "Full-stack development with React and Node.js. Reduced API latency by 40% through aggressive caching strategies.",
   },
 ];
 
@@ -49,7 +50,7 @@ const ExperienceItem = ({
           {company}
         </p>
         <div className="mt-3 max-w-lg">
-          <p className="font-body text-sm text-muted-foreground leading-relaxed">
+          <p className="font-body text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
             {isExpanded || !shouldTruncate
               ? description
               : `${description.slice(0, limit)}...`}
