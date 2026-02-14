@@ -54,11 +54,11 @@ const BlogDetail = () => {
       <article className="container max-w-3xl mx-auto px-6 py-16 md:py-24">
         {/* Back link */}
         <Link
-          to="/"
+          to="/blogs"
           className="inline-flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-foreground transition-colors mb-16"
         >
           <ArrowLeft className="w-3 h-3" />
-          Back
+          Back to Writing
         </Link>
 
         {/* Header */}
