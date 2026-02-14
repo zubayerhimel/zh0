@@ -141,7 +141,7 @@ const BlogDetail = () => {
                 className="group border border-border p-8 hover:bg-card transition-colors block"
               >
                 <span className="font-mono text-xs text-muted-foreground">{sb.date}</span>
-                <h4 className="font-display text-xl text-foreground mt-3 group-hover:italic transition-all leading-snug">
+                <h4 className="font-display text-xl text-foreground mt-3 leading-snug">
                   {sb.title}
                   <span className="inline-block ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
                     ↗
