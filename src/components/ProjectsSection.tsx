@@ -41,7 +41,7 @@ const ProjectsSection = () => {
               className="bg-background p-8 group hover:bg-card transition-colors block"
             >
               <div className="flex items-start justify-between mb-4">
-                <h3 className="font-display text-2xl text-foreground group-hover:italic transition-all">
+                <h3 className="font-display text-2xl text-foreground">
                   {project.title}
                 </h3>
                 <span className="font-display text-lg text-muted-foreground group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
