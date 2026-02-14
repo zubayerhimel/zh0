@@ -10,23 +10,33 @@ const FooterSection = () => {
               Let's build something together.
             </p>
             <a
-              href="mailto:hello@example.com"
+              href="mailto:zubayerhimel0@gmail.com"
               className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 mt-2 inline-block"
             >
-              hello@example.com
+              zubayerhimel0@gmail.com
             </a>
           </div>
 
           <div className="flex gap-6">
-            {["GitHub", "LinkedIn", "Twitter/X"].map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link}
-              </a>
-            ))}
+            <a
+              href={`https://github.com/zubayerhimel`}
+              className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Github
+            </a>
+            <a
+              href={`https://linkedin.com/in/zubayerhimel`}
+              className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={`https://twitter.com/zubayerhimel0`}
+              className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Twitter/X
+            </a>
+
           </div>
         </div>
 
