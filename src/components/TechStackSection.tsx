@@ -77,7 +77,7 @@ const TechStackSection = () => {
               Tech Stack
             </h2>
 
-            <p className="font-body text-md text-foreground leading-snug text-foreground/60">
+            <p className="font-body text-sm text-muted-foreground leading-snug">
               I'm a generalist at heart who can build with anything, but here's
               the core stack I've spent the most time with
             </p>

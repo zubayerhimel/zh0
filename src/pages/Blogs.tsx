@@ -17,7 +17,7 @@ const Blogs = () => {
           <h1 className="text-7xl md:text-8xl font-display font-light text-foreground italic">
             Writing
           </h1>
-          <p className="font-body text-xl text-muted-foreground mt-6 max-w-2xl leading-relaxed">
+          <p className="font-body text-md text-muted-foreground mt-6 max-w-2xl leading-relaxed">
             Exploring intersections of technology, design, and human experience.
           </p>
         </div>
@@ -33,11 +33,11 @@ const Blogs = () => {
                 <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">{blog.date}</span>
               </div>
               <div className="md:col-span-3">
-                <h2 className="font-display text-3xl md:text-4xl text-foreground group-hover:italic transition-all duration-300">
+                <h2 className="font-display text-2xl text-foreground">
                   {blog.title}
                   <span className="inline-block ml-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300">↗</span>
                 </h2>
-                <p className="font-body text-base md:text-lg text-muted-foreground mt-4 max-w-2xl leading-relaxed">
+                <p className="font-body text-md md:text-base text-muted-foreground mt-4 max-w-2xl leading-relaxed">
                   {blog.excerpt}
                 </p>
               </div>

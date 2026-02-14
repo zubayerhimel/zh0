@@ -54,7 +54,7 @@ const ThoughtsAndBlogsSection = () => {
                 <span className="font-mono text-xs text-muted-foreground">{blog.date}</span>
               </div>
               <div className="md:col-span-3">
-                <h3 className="font-display text-2xl text-foreground group-hover:italic transition-all">
+                <h3 className="font-display text-2xl text-foreground">
                   {blog.title}
                   <span className="inline-block ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">↗</span>
                 </h3>

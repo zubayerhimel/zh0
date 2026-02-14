@@ -26,13 +26,13 @@ const HeroIntro = () => {
             </div>
 
             <div className="border-l-2 border-foreground pl-6 space-y-3 max-w-lg">
-              <p className="font-body text-sm leading-relaxed text-foreground">
+              <p className="font-body text-sm leading-relaxed text-muted-foreground">
                 <span className="font-display text-lg italic">Building exceptional web experiences</span> — I craft
                 performant, accessible, and user-centric applications with modern JavaScript frameworks.
                 My expertise spans React, Next.js, and Vue.js, with solid backend capabilities to deliver
                 full-stack solutions.
               </p>
-              <p className="font-body text-sm text-foreground leading-relaxed">
+              <p className="font-body text-sm text-muted-foreground leading-relaxed">
                 With years of experience shipping production-grade software, I focus on writing clean,
                 maintainable code and creating intuitive interfaces that users love. Passionate about
                 developer experience, performance optimization, and staying current with the evolving
