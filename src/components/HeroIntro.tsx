@@ -20,7 +20,7 @@ const HeroIntro = () => {
               <h1 className="text-6xl md:text-8xl font-display font-light tracking-tight text-foreground leading-none">
                 Zubayer Alam
               </h1>
-              <p className="font-mono text-xs text-muted-foreground mt-3 tracking-wide">
+              <p className="font-mono text-xs text-muted-foreground mt-4 md:mt-8 tracking-wide">
                 Senior Software Engineer · Frontend Specialist
               </p>
             </div>

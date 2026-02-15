@@ -133,23 +133,32 @@ const BlogDetail = () => {
           <h3 className="font-display text-2xl md:text-3xl font-light text-foreground mb-10 italic">
             Suggested Reads
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {suggestedBlogs.map((sb) => (
               <Link
                 key={sb.slug}
                 to={`/blog/${sb.slug}`}
-                className="group border border-border p-8 hover:bg-card transition-colors block"
+                className="group flex flex-col h-full"
               >
-                <span className="font-mono text-xs text-muted-foreground">{sb.date}</span>
-                <h4 className="font-display text-xl text-foreground mt-3 leading-snug">
-                  {sb.title}
-                  <span className="inline-block ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-                    ↗
+                <div className="flex-1 flex flex-col">
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <span className="font-mono text-xs text-muted-foreground bg-muted px-3 py-1 rounded-full">
+                      {sb.date}
+                    </span>
+                  </div>
+                  <h4 className="font-display text-lg md:text-xl font-light text-foreground leading-snug mb-3 group-hover:text-primary transition-colors">
+                    {sb.title}
+                  </h4>
+                  <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
+                    {sb.excerpt}
+                  </p>
+                </div>
+                <div className="inline-flex items-center gap-2 text-primary font-mono text-xs font-medium">
+                  Read More
+                  <span className="inline-block opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200">
+                    →
                   </span>
-                </h4>
-                <p className="font-body text-sm text-muted-foreground mt-3 leading-relaxed">
-                  {sb.excerpt}
-                </p>
+                </div>
               </Link>
             ))}
           </div>
