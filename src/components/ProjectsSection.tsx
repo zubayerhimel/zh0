@@ -1,9 +1,9 @@
 const projects = [
   {
-    title: "Project Alpha",
-    description: "A real-time collaborative editor built with CRDTs. Because Google Docs needed competition from a solo developer.",
-    tech: ["React", "TypeScript", "WebSockets", "Yjs"],
-    link: "#",
+    title: "Neodesk",
+    description: "A collaborative digital asset management platform for photographers and videographers.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "AWS S3", "Cloudinary"],
+    link: "https://stage.neodesk.io",
   },
   {
     title: "CLI Tool",
@@ -38,6 +38,8 @@ const ProjectsSection = () => {
             <a
               key={i}
               href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-background p-8 group hover:bg-card transition-colors block"
             >
               <div className="flex items-start justify-between mb-4">
