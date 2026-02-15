@@ -41,10 +41,10 @@ const HeroIntro = () => {
             </div>
 
             <div className="flex gap-6 pt-2">
-              <a href="https://github.com/zubayeralam" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
+              <a href="https://github.com/zubayerhimel" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
                 GitHub
               </a>
-              <a href="https://linkedin.com/in/zubayeralam" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
+              <a href="https://linkedin.com/in/zubayerhimel" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
                 LinkedIn
               </a>
               <a href="https://twitter.com/zubayerhimel0" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">

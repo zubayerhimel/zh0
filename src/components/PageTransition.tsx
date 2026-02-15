@@ -1,6 +1,6 @@
 import { motion, AnimatePresence, type Transition } from "motion/react";
 import { useLocation } from "react-router-dom";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -29,14 +29,24 @@ const pageTransition: Transition = {
 
 export function PageTransition({ children }: PageTransitionProps) {
   const location = useLocation();
+  const isFirstMount = useRef(true);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+    setShouldAnimate(true);
+  }, [location.pathname]);
 
   return (
     <AnimatePresence mode="wait">
       <motion.div
         key={location.pathname}
-        initial="initial"
+        initial={shouldAnimate ? "initial" : undefined}
         animate="animate"
-        exit="exit"
+        exit={shouldAnimate ? "exit" : undefined}
         variants={pageVariants}
         transition={pageTransition}
         className="w-full"
