@@ -29,7 +29,7 @@ export const FloatingDock = () => {
 
   return (
     <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-      <div className="flex items-center gap-2 p-2 rounded-full border border-border/40 bg-background/80 backdrop-blur-md shadow-2xl transition-all duration-300 hover:border-border/80">
+      <div className="flex items-center gap-2 p-1 rounded-full border border-border/40 bg-background/80 backdrop-blur-md shadow-2xl transition-all duration-300 hover:border-border/80">
         <TooltipProvider delayDuration={0}>
           {navItems.map((item) => (
             <Tooltip key={item.name}>
@@ -37,13 +37,13 @@ export const FloatingDock = () => {
                 <Link
                   to={item.href}
                   className={cn(
-                    "relative p-3 rounded-full transition-all duration-300 group",
+                    "relative p-2 rounded-full transition-all duration-300 group",
                     item.active
                       ? "bg-primary text-primary-foreground scale-110"
                       : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-110 active:scale-95"
                   )}
                 >
-                  <item.icon className="h-5 w-5" />
+                  <item.icon className="h-4 w-4" />
                   {item.active && (
                     <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary-foreground rounded-full" />
                   )}
@@ -61,9 +61,9 @@ export const FloatingDock = () => {
             <TooltipTrigger asChild>
               <button
                 onClick={toggleTheme}
-                className="p-3 rounded-full hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 active:scale-95"
+                className="p-2 rounded-full hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 active:scale-95"
               >
-                <div className="relative h-5 w-5">
+                <div className="relative h-4 w-4">
                   <Sun className="absolute h-full w-full rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                   <Moon className="absolute h-full w-full rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                 </div>

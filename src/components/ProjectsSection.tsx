@@ -20,7 +20,7 @@ const projects = [
   {
     title: "Design System",
     description: "A component library used across 3 products internally. Documentation that people actually read.",
-    tech: ["React", "Storybook", "Tailwind"],
+    tech: ["React", "Storybook", "SCSS"],
     link: "#",
   },
 ];
@@ -33,14 +33,16 @@ const ProjectsSection = () => {
           Projects
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           {projects.map((project, i) => (
             <a
               key={i}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-background p-8 group hover:bg-card transition-colors block"
+              className={`bg-background py-8 px-4 md:p-8 group hover:bg-card transition-colors block border-border ${i < projects.length - 1 ? "border-b" : ""
+                } ${i === projects.length - 2 ? "md:border-b-0" : ""} ${i % 2 === 0 ? "md:border-r" : ""
+                }`}
             >
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-display text-2xl text-foreground">
