@@ -1,7 +1,5 @@
 import { PageTransition } from "@/components/PageTransition";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Layout from "./components/Layout";
@@ -32,8 +30,6 @@ const App = () => (
 
   <ThemeProvider defaultTheme="system" storageKey="app-theme">
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
       <BrowserRouter>
         <ScrollToTop />
         <Layout>
