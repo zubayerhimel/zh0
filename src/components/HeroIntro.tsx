@@ -1,6 +1,6 @@
 import portrait from "@/assets/portrait.png";
 import { motion } from "motion/react";
-import { ArrowUpRight, Github, Linkedin, Twitter, Mail, Copy, Check } from "lucide-react";
+import { ArrowUpRight, Copy, Check } from "lucide-react";
 import { useState } from "react";
 
 const HeroIntro = () => {
