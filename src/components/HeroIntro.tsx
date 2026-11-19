@@ -1,7 +1,7 @@
-import portrait from "@/assets/portrait.png";
+import { ArrowUpRight, Check, Copy } from "lucide-react";
 import { motion } from "motion/react";
-import { ArrowUpRight, Copy, Check } from "lucide-react";
 import { useState } from "react";
+import portrait from "@/assets/portrait.png";
 
 const HeroIntro = () => {
   const [copied, setCopied] = useState(false);
@@ -21,7 +21,6 @@ const HeroIntro = () => {
 
       <div className="container max-w-6xl mx-auto px-6 py-24 z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
-
           {/* Portrait Column */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
@@ -48,7 +47,9 @@ const HeroIntro = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500 m-auto"></span>
               </div>
-              <span className="text-xs font-mono font-medium tracking-tight text-foreground/90">Available for work</span>
+              <span className="text-xs font-mono font-medium tracking-tight text-foreground/90">
+                Available for work
+              </span>
             </motion.div>
           </motion.div>
 
@@ -94,46 +95,67 @@ const HeroIntro = () => {
 
               <div className="space-y-5 max-w-2xl">
                 <p className="font-body text-md leading-relaxed text-foreground/80">
-                  <span className="font-display text-lg text-foreground font-medium italic pr-2">Building exceptional web experiences.</span>
-                  I craft performant, accessible, and user-centric applications with modern JavaScript frameworks.
-                  My expertise spans React, Next.js, and Vue.js, with solid backend capabilities to deliver full-stack solutions.
+                  <span className="font-display text-lg text-foreground font-medium italic pr-2">
+                    Building exceptional web experiences.
+                  </span>
+                  I craft performant, accessible, and user-centric applications with modern JavaScript frameworks. My
+                  expertise spans React, Next.js, and Vue.js, with solid backend capabilities to deliver full-stack
+                  solutions.
                 </p>
                 <p className="font-body text-md text-muted-foreground leading-relaxed">
-                  With years of experience shipping production-grade software, I focus on writing clean,
-                  maintainable code and creating intuitive interfaces that users love. Passionate about
-                  developer experience, performance optimization, and staying current with the evolving
-                  frontend ecosystem.
+                  With years of experience shipping production-grade software, I focus on writing clean, maintainable
+                  code and creating intuitive interfaces that users love. Passionate about developer experience,
+                  performance optimization, and staying current with the evolving frontend ecosystem.
                 </p>
               </div>
             </motion.div>
 
             <div className="flex flex-wrap gap-3">
-              <a href="https://github.com/zubayerhimel" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 group flex gap-1 items-center">
+              <a
+                href="https://github.com/zubayerhimel"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 group flex gap-1 items-center"
+              >
                 GitHub
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-transform duration-300 transition-all" />
               </a>
-              <a href="https://linkedin.com/in/zubayerhimel" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 group flex gap-1 items-center">
+              <a
+                href="https://linkedin.com/in/zubayerhimel"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 group flex gap-1 items-center"
+              >
                 LinkedIn
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-transform duration-300 transition-all" />
               </a>
-              <a href="https://twitter.com/zubayerhimel0" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 group flex gap-1 items-center">
+              <a
+                href="https://twitter.com/zubayerhimel0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 group flex gap-1 items-center"
+              >
                 Twitter/X
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-transform duration-300 transition-all" />
               </a>
               <div className="group flex items-center gap-1 group/email">
-                <a href="mailto:zubayerhimel0@gmail.com" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 flex gap-1 items-center">
+                <a
+                  href="mailto:zubayerhimel0@gmail.com"
+                  className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 flex gap-1 items-center"
+                >
                   Email
                 </a>
-                <button type="button" onClick={handleCopyEmail} className="opacity-0 group-hover/email:opacity-100 group-hover/email:translate-x-0.5 transition-transform duration-300 transition-all text-muted-foreground hover:text-foreground transition-opacity" title="Copy email address" aria-label="Copy email address">
-                  {copied ? (
-                    <Check className="w-3.5 h-3.5 text-green-500" />
-                  ) : (
-                    <Copy className="w-3.5 h-3.5" />
-                  )}
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="opacity-0 group-hover/email:opacity-100 group-hover/email:translate-x-0.5 transition-transform duration-300 transition-all text-muted-foreground hover:text-foreground transition-opacity"
+                  title="Copy email address"
+                  aria-label="Copy email address"
+                >
+                  {copied ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       </div>

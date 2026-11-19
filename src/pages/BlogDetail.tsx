@@ -1,9 +1,9 @@
-import { blogs } from "@/data/blogs";
 import { ArrowLeft, ExternalLink } from "lucide-react";
-import { useEffect, type ComponentProps } from "react";
+import { type ComponentProps, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { Link, useParams } from "react-router";
 import remarkGfm from "remark-gfm";
+import { blogs } from "@/data/blogs";
 
 // Custom renderer for code blocks
 const CodeBlock = ({ className, children }: ComponentProps<"code">) => {
@@ -72,9 +72,7 @@ const BlogDetail = () => {
           <h1 className="font-display text-4xl md:text-6xl font-light text-foreground leading-tight md:leading-none">
             {blog.title}
           </h1>
-          <p className="font-body text-body text-muted-foreground mt-6 leading-relaxed max-w-2xl">
-            {blog.excerpt}
-          </p>
+          <p className="font-body text-body text-muted-foreground mt-6 leading-relaxed max-w-2xl">{blog.excerpt}</p>
         </header>
 
         <div className="section-divider mb-16" />
@@ -84,9 +82,15 @@ const BlogDetail = () => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
-              h1: ({ node, ...props }) => <h1 className="font-display text-3xl md:text-4xl font-light text-foreground mt-14 mb-4" {...props} />,
-              h2: ({ node, ...props }) => <h2 className="font-display text-2xl md:text-3xl font-light text-foreground mt-14 mb-4" {...props} />,
-              h3: ({ node, ...props }) => <h3 className="font-display text-xl md:text-2xl font-light text-foreground mt-10 mb-3" {...props} />,
+              h1: ({ node, ...props }) => (
+                <h1 className="font-display text-3xl md:text-4xl font-light text-foreground mt-14 mb-4" {...props} />
+              ),
+              h2: ({ node, ...props }) => (
+                <h2 className="font-display text-2xl md:text-3xl font-light text-foreground mt-14 mb-4" {...props} />
+              ),
+              h3: ({ node, ...props }) => (
+                <h3 className="font-display text-xl md:text-2xl font-light text-foreground mt-10 mb-3" {...props} />
+              ),
               p: ({ node, ...props }) =>
                 node?.children.some((child) => child.type === "element" && child.tagName === "img") ? (
                   <div className="mb-6 last:mb-0" {...props} />
@@ -94,7 +98,7 @@ const BlogDetail = () => {
                   <p className="mb-6 last:mb-0" {...props} />
                 ),
               a: ({ node, ...props }) => {
-                const isExternal = props.href?.startsWith('http');
+                const isExternal = props.href?.startsWith("http");
                 if (isExternal) {
                   return (
                     <a
@@ -108,13 +112,20 @@ const BlogDetail = () => {
                     </a>
                   );
                 }
-                return <Link to={props.href || "#"} className="text-primary hover:underline underline-offset-4" >{props.children}</Link>;
+                return (
+                  <Link to={props.href || "#"} className="text-primary hover:underline underline-offset-4">
+                    {props.children}
+                  </Link>
+                );
               },
               ul: ({ node, ...props }) => <ul className="list-disc pl-6 mb-6 space-y-2" {...props} />,
               ol: ({ node, ...props }) => <ol className="list-decimal pl-6 mb-6 space-y-2" {...props} />,
               li: ({ node, ...props }) => <li className="pl-2" {...props} />,
               blockquote: ({ node, ...props }) => (
-                <blockquote className="border-l-2 border-foreground pl-6 py-4 my-10 italic text-xl text-foreground" {...props} />
+                <blockquote
+                  className="border-l-2 border-foreground pl-6 py-4 my-10 italic text-xl text-foreground"
+                  {...props}
+                />
               ),
               code: CodeBlock,
               img: ({ node, ...props }) => (
@@ -136,16 +147,10 @@ const BlogDetail = () => {
         {/* Suggested Reads */}
         <div className="mt-24">
           <div className="section-divider mb-12" />
-          <h3 className="font-display text-2xl md:text-3xl font-light text-foreground mb-10 italic">
-            Suggested Reads
-          </h3>
+          <h3 className="font-display text-2xl md:text-3xl font-light text-foreground mb-10 italic">Suggested Reads</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {suggestedBlogs.map((sb) => (
-              <Link
-                key={sb.slug}
-                to={`/blog/${sb.slug}`}
-                className="group flex flex-col h-full"
-              >
+              <Link key={sb.slug} to={`/blog/${sb.slug}`} className="group flex flex-col h-full">
                 <div className="flex-1 flex flex-col">
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <span className="font-mono text-xs text-muted-foreground bg-muted px-3 py-1 rounded-full">
@@ -155,9 +160,7 @@ const BlogDetail = () => {
                   <h4 className="font-display text-lg md:text-xl font-light text-foreground leading-snug md:leading-7 mb-3 group-hover:text-primary transition-colors">
                     {sb.title}
                   </h4>
-                  <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
-                    {sb.excerpt}
-                  </p>
+                  <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6 flex-1">{sb.excerpt}</p>
                 </div>
                 <div className="inline-flex items-center gap-2 text-primary font-mono text-xs font-medium">
                   Read More

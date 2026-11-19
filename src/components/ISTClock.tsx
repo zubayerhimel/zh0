@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const ISTClock = () => {
   const [time, setTime] = useState("");
@@ -22,8 +22,7 @@ const ISTClock = () => {
 
   return (
     <div className="fixed top-6 right-6 z-50 font-mono text-xs tracking-widest text-muted-foreground">
-      <span className="opacity-50">BST</span>{" "}
-      <span>{time}</span>
+      <span className="opacity-50">BST</span> <span>{time}</span>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { Link } from "react-router";
-import { blogs } from "@/data/blogs";
 import ISTClock from "@/components/ISTClock";
+import { blogs } from "@/data/blogs";
 
 const Blogs = () => {
   return (
@@ -14,9 +14,7 @@ const Blogs = () => {
           >
             ← Back to Home
           </Link>
-          <h1 className="text-7xl md:text-8xl font-display font-light text-foreground italic">
-            Writing
-          </h1>
+          <h1 className="text-7xl md:text-8xl font-display font-light text-foreground italic">Writing</h1>
           <p className="font-body text-md text-muted-foreground mt-6 max-w-2xl leading-relaxed">
             Exploring intersections of technology, design, and human experience.
           </p>
@@ -35,7 +33,9 @@ const Blogs = () => {
               <div className="md:col-span-3">
                 <h2 className="font-display text-2xl text-foreground">
                   {blog.title}
-                  <span className="inline-block ml-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300">↗</span>
+                  <span className="inline-block ml-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300">
+                    ↗
+                  </span>
                 </h2>
                 <p className="font-body text-md md:text-base text-muted-foreground mt-4 max-w-2xl leading-relaxed md:leading-6">
                   {blog.excerpt}

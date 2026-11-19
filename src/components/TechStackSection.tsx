@@ -18,7 +18,7 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiVercel,
-  SiVuedotjs
+  SiVuedotjs,
 } from "react-icons/si";
 
 // Fallback for Shadcn UI if no specific icon
@@ -73,16 +73,13 @@ const TechStackSection = () => {
       <div className="container max-w-5xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-12">
           <div className="max-w-2xl">
-            <h2 className="text-5xl md:text-6xl font-display font-light text-foreground mb-16 italic">
-              Tech Stack
-            </h2>
+            <h2 className="text-5xl md:text-6xl font-display font-light text-foreground mb-16 italic">Tech Stack</h2>
 
             <p className="font-body text-sm text-muted-foreground leading-snug">
-              I'm a generalist at heart who can build with anything, but here's
-              the core stack I've spent the most time with
+              I'm a generalist at heart who can build with anything, but here's the core stack I've spent the most time
+              with
             </p>
           </div>
-
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">

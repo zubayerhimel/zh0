@@ -6,9 +6,7 @@ const FooterSection = () => {
       <div className="container max-w-5xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>
-            <p className="font-display text-2xl text-foreground italic">
-              Let's build something together.
-            </p>
+            <p className="font-display text-2xl text-foreground italic">Let's build something together.</p>
             <a
               href="mailto:zubayerhimel0@gmail.com"
               className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 mt-2 inline-block"
@@ -36,7 +34,6 @@ const FooterSection = () => {
             >
               Twitter/X
             </a>
-
           </div>
         </div>
 

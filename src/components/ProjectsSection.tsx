@@ -7,7 +7,8 @@ const projects = [
   },
   {
     title: "CLI Tool",
-    description: "A developer CLI that automates the boring parts of project setup. 200+ stars on GitHub, mostly from my alt accounts.",
+    description:
+      "A developer CLI that automates the boring parts of project setup. 200+ stars on GitHub, mostly from my alt accounts.",
     tech: ["Go", "Cobra", "SQLite"],
     link: "#",
   },
@@ -29,9 +30,7 @@ const ProjectsSection = () => {
   return (
     <section className="py-24">
       <div className="container max-w-5xl mx-auto px-6">
-        <h2 className="text-5xl md:text-6xl font-display font-light text-foreground mb-16 italic">
-          Projects
-        </h2>
+        <h2 className="text-5xl md:text-6xl font-display font-light text-foreground mb-16 italic">Projects</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2">
           {projects.map((project, i) => (
@@ -40,25 +39,22 @@ const ProjectsSection = () => {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`bg-background py-8 px-4 md:p-8 group hover:bg-card transition-colors block border-border ${i < projects.length - 1 ? "border-b" : ""
-                } ${i === projects.length - 2 ? "md:border-b-0" : ""} ${i % 2 === 0 ? "md:border-r" : ""
-                }`}
+              className={`bg-background py-8 px-4 md:p-8 group hover:bg-card transition-colors block border-border ${
+                i < projects.length - 1 ? "border-b" : ""
+              } ${i === projects.length - 2 ? "md:border-b-0" : ""} ${i % 2 === 0 ? "md:border-r" : ""}`}
             >
               <div className="flex items-start justify-between mb-4">
-                <h3 className="font-display text-2xl text-foreground">
-                  {project.title}
-                </h3>
+                <h3 className="font-display text-2xl text-foreground">{project.title}</h3>
                 <span className="font-display text-lg text-muted-foreground group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                   ↗
                 </span>
               </div>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
-                {project.description}
-              </p>
+              <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((t, j) => (
                   <span key={t} className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">
-                    {t}{j < project.tech.length - 1 ? " ·" : ""}
+                    {t}
+                    {j < project.tech.length - 1 ? " ·" : ""}
                   </span>
                 ))}
               </div>

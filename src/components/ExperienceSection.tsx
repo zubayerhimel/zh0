@@ -5,7 +5,8 @@ const experiences = [
     role: "Senior Software Engineer",
     company: "Hogarth Worldwide",
     period: "May 2025 — Present",
-    description: "Working as a frontend developer across multiple projects, building responsive and reusable user interfaces using modern JavaScript frameworks and Drupal’s theming system. Contributed to improving frontend architecture, performance, and development workflows. Collaborated closely with designers, backend developers, and stakeholders to deliver accessible, maintainable, and scalable web experiences.",
+    description:
+      "Working as a frontend developer across multiple projects, building responsive and reusable user interfaces using modern JavaScript frameworks and Drupal’s theming system. Contributed to improving frontend architecture, performance, and development workflows. Collaborated closely with designers, backend developers, and stakeholders to deliver accessible, maintainable, and scalable web experiences.",
   },
   {
     role: "Software Engineer",
@@ -18,7 +19,8 @@ const experiences = [
     role: "Software Engineer",
     company: "Team Tigers - Startup",
     period: "2019 — 2021",
-    description: "Full-stack development with React and Node.js. Reduced API latency by 40% through aggressive caching strategies.",
+    description:
+      "Full-stack development with React and Node.js. Reduced API latency by 40% through aggressive caching strategies.",
   },
 ];
 
@@ -40,20 +42,14 @@ const ExperienceItem = ({
   return (
     <div className="border-t border-border py-8 grid grid-cols-1 md:grid-cols-4 gap-4">
       <div className="md:col-span-1">
-        <span className="font-mono text-xs text-muted-foreground">
-          {period}
-        </span>
+        <span className="font-mono text-xs text-muted-foreground">{period}</span>
       </div>
       <div className="md:col-span-3">
         <h3 className="font-display text-2xl text-foreground">{role}</h3>
-        <p className="font-mono text-xs text-muted-foreground mt-1">
-          {company}
-        </p>
+        <p className="font-mono text-xs text-muted-foreground mt-1">{company}</p>
         <div className="mt-3 max-w-lg">
           <p className="font-body text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
-            {isExpanded || !shouldTruncate
-              ? description
-              : `${description.slice(0, limit)}...`}
+            {isExpanded || !shouldTruncate ? description : `${description.slice(0, limit)}...`}
           </p>
           {shouldTruncate && (
             <button
@@ -74,9 +70,7 @@ const ExperienceSection = () => {
   return (
     <section className="py-24">
       <div className="container max-w-5xl mx-auto px-6">
-        <h2 className="text-5xl md:text-6xl font-display font-light text-foreground mb-16 italic">
-          Experience
-        </h2>
+        <h2 className="text-5xl md:text-6xl font-display font-light text-foreground mb-16 italic">Experience</h2>
 
         <div className="space-y-0">
           {experiences.map((exp) => (

@@ -1,4 +1,4 @@
-import { Home, NotebookText, Sun, Moon } from "lucide-react";
+import { Home, Moon, NotebookText, Sun } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import { useTheme } from "@/hooks/use-theme";
 import { cn } from "@/lib/utils";
@@ -40,7 +40,7 @@ export const FloatingDock = () => {
                     "relative p-2 rounded-full transition-all duration-300 group",
                     item.active
                       ? "bg-primary text-primary-foreground scale-110"
-                      : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-110 active:scale-95"
+                      : "hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-110 active:scale-95",
                   )}
                 >
                   <item.icon className="h-4 w-4" />
