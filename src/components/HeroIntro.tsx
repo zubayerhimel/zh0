@@ -71,7 +71,7 @@ const HeroIntro = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-6xl md:text-7xl lg:text-[7rem] font-display font-medium tracking-tighter text-foreground leading-[0.9] -ml-1"
+                className="text-6xl md:text-7xl lg:text-[7rem] font-display font-medium tracking-tighter text-foreground leading-[0.9] md:leading-none -ml-1"
               >
                 Zubayer <br className="hidden md:block" />
                 <span className="text-muted-foreground/40 font-light">Alam.</span>
@@ -89,7 +89,7 @@ const HeroIntro = () => {
                 initial={{ height: 0 }}
                 animate={{ height: "100%" }}
                 transition={{ duration: 0.8, delay: 0.6, ease: "easeInOut" }}
-                className="absolute left-0 top-0 w-[2px] bg-gradient-to-b from-primary to-primary/50"
+                className="absolute left-0 top-0 w-[2px] bg-linear-to-b from-primary to-primary/50"
               />
 
               <div className="space-y-5 max-w-2xl">

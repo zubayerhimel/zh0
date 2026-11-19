@@ -58,7 +58,7 @@ const ExperienceItem = ({
           {shouldTruncate && (
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="mt-2 text-xs font-mono underline decoration-muted-foreground/50 hover:decoration-foreground text-foreground transition-all focus:outline-none"
+              className="mt-2 text-xs font-mono underline decoration-muted-foreground/50 hover:decoration-foreground text-foreground transition-all focus:outline-hidden"
             >
               {isExpanded ? "Show Less" : "Show More"}
             </button>

@@ -68,7 +68,7 @@ const BlogDetail = () => {
             <span className="text-muted-foreground">·</span>
             <span className="font-mono text-xs text-muted-foreground">{blog.readTime}</span>
           </div>
-          <h1 className="font-display text-4xl md:text-6xl font-light text-foreground leading-tight">
+          <h1 className="font-display text-4xl md:text-6xl font-light text-foreground leading-tight md:leading-none">
             {blog.title}
           </h1>
           <p className="font-body text-body text-muted-foreground mt-6 leading-relaxed max-w-2xl">
@@ -151,7 +151,7 @@ const BlogDetail = () => {
                       {sb.date}
                     </span>
                   </div>
-                  <h4 className="font-display text-lg md:text-xl font-light text-foreground leading-snug mb-3 group-hover:text-primary transition-colors">
+                  <h4 className="font-display text-lg md:text-xl font-light text-foreground leading-snug md:leading-7 mb-3 group-hover:text-primary transition-colors">
                     {sb.title}
                   </h4>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6 flex-1">

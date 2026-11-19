@@ -37,7 +37,7 @@ const Blogs = () => {
                   {blog.title}
                   <span className="inline-block ml-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300">↗</span>
                 </h2>
-                <p className="font-body text-md md:text-base text-muted-foreground mt-4 max-w-2xl leading-relaxed">
+                <p className="font-body text-md md:text-base text-muted-foreground mt-4 max-w-2xl leading-relaxed md:leading-6">
                   {blog.excerpt}
                 </p>
               </div>

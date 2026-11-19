@@ -55,7 +55,7 @@ export const FloatingDock = () => {
             </Tooltip>
           ))}
 
-          <div className="w-[1px] h-6 bg-border mx-1" />
+          <div className="w-px h-6 bg-border mx-1" />
 
           <Tooltip>
             <TooltipTrigger asChild>
