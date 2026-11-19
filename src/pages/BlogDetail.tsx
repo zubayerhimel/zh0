@@ -86,7 +86,12 @@ const BlogDetail = () => {
               h1: ({ node, ...props }) => <h1 className="font-display text-3xl md:text-4xl font-light text-foreground mt-14 mb-4" {...props} />,
               h2: ({ node, ...props }) => <h2 className="font-display text-2xl md:text-3xl font-light text-foreground mt-14 mb-4" {...props} />,
               h3: ({ node, ...props }) => <h3 className="font-display text-xl md:text-2xl font-light text-foreground mt-10 mb-3" {...props} />,
-              p: ({ node, ...props }) => <p className="mb-6 last:mb-0" {...props} />,
+              p: ({ node, ...props }) =>
+                node?.children.some((child) => child.type === "element" && child.tagName === "img") ? (
+                  <div className="mb-6 last:mb-0" {...props} />
+                ) : (
+                  <p className="mb-6 last:mb-0" {...props} />
+                ),
               a: ({ node, ...props }) => {
                 const isExternal = props.href?.startsWith('http');
                 if (isExternal) {
