@@ -1,7 +1,7 @@
 import { PageTransition } from "@/components/PageTransition";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import BlogDetail from "./pages/BlogDetail";

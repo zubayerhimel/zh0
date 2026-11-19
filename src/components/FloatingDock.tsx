@@ -1,5 +1,5 @@
 import { Home, NotebookText, Sun, Moon } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router";
 import { useTheme } from "./ThemeProvider";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";

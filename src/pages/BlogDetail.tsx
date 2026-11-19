@@ -2,7 +2,7 @@ import { blogs } from "@/data/blogs";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { useEffect, type ComponentProps } from "react";
 import ReactMarkdown from "react-markdown";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router";
 import remarkGfm from "remark-gfm";
 
 // Custom renderer for code blocks

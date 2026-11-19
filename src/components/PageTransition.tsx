@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, type Transition } from "motion/react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 import { ReactNode, useEffect, useRef, useState } from "react";
 
 interface PageTransitionProps {
