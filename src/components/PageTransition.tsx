@@ -1,6 +1,6 @@
 import { motion, AnimatePresence, type Transition } from "motion/react";
 import { useLocation } from "react-router";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -32,6 +32,7 @@ export function PageTransition({ children }: PageTransitionProps) {
   const isFirstMount = useRef(true);
   const [shouldAnimate, setShouldAnimate] = useState(false);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: enable animations once the route first changes
   useEffect(() => {
     if (isFirstMount.current) {
       isFirstMount.current = false;

@@ -26,9 +26,9 @@ const ThoughtsAndBlogsSection = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
-          {thoughts.map((thought, i) => (
+          {thoughts.map((thought) => (
             <blockquote
-              key={i}
+              key={thought.text}
               className="border-l-2 border-foreground pl-6 py-2"
             >
               <p className="font-display text-lg text-foreground italic leading-relaxed">
@@ -44,9 +44,9 @@ const ThoughtsAndBlogsSection = () => {
         </h2>
 
         <div className="space-y-0">
-          {blogs.map((blog, i) => (
+          {blogs.map((blog) => (
             <Link
-              key={i}
+              key={blog.slug}
               to={`/blog/${blog.slug}`}
               className="border-t border-border py-8 grid grid-cols-1 md:grid-cols-4 gap-4 group block hover:bg-card transition-colors -mx-6 px-6"
             >

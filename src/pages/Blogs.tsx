@@ -23,9 +23,9 @@ const Blogs = () => {
         </div>
 
         <div className="space-y-0">
-          {blogs.map((blog, i) => (
+          {blogs.map((blog) => (
             <Link
-              key={i}
+              key={blog.slug}
               to={`/blog/${blog.slug}`}
               className="border-t border-border py-12 grid grid-cols-1 md:grid-cols-4 gap-8 group block hover:bg-card/50 transition-colors -mx-6 px-6"
             >

@@ -30,6 +30,7 @@ const BlogDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const blog = blogs.find((b) => b.slug === slug);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: scroll to top when navigating between posts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);

@@ -60,6 +60,7 @@ export const FloatingDock = () => {
           <Tooltip>
             <TooltipTrigger asChild>
               <button
+                type="button"
                 onClick={toggleTheme}
                 className="p-2 rounded-full hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 active:scale-95"
               >

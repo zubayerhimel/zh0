@@ -36,7 +36,7 @@ const ProjectsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2">
           {projects.map((project, i) => (
             <a
-              key={i}
+              key={project.title}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -57,7 +57,7 @@ const ProjectsSection = () => {
               </p>
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((t, j) => (
-                  <span key={j} className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">
+                  <span key={t} className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">
                     {t}{j < project.tech.length - 1 ? " ·" : ""}
                   </span>
                 ))}

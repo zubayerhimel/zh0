@@ -124,7 +124,7 @@ const HeroIntro = () => {
                 <a href="mailto:zubayerhimel0@gmail.com" className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 flex gap-1 items-center">
                   Email
                 </a>
-                <button onClick={handleCopyEmail} className="opacity-0 group-hover/email:opacity-100 group-hover/email:translate-x-0.5 transition-transform duration-300 transition-all text-muted-foreground hover:text-foreground transition-opacity" title="Copy email address" aria-label="Copy email address">
+                <button type="button" onClick={handleCopyEmail} className="opacity-0 group-hover/email:opacity-100 group-hover/email:translate-x-0.5 transition-transform duration-300 transition-all text-muted-foreground hover:text-foreground transition-opacity" title="Copy email address" aria-label="Copy email address">
                   {copied ? (
                     <Check className="w-3.5 h-3.5 text-green-500" />
                   ) : (

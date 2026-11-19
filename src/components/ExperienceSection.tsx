@@ -57,6 +57,7 @@ const ExperienceItem = ({
           </p>
           {shouldTruncate && (
             <button
+              type="button"
               onClick={() => setIsExpanded(!isExpanded)}
               className="mt-2 text-xs font-mono underline decoration-muted-foreground/50 hover:decoration-foreground text-foreground transition-all focus:outline-hidden"
             >
@@ -78,8 +79,8 @@ const ExperienceSection = () => {
         </h2>
 
         <div className="space-y-0">
-          {experiences.map((exp, i) => (
-            <ExperienceItem key={i} {...exp} />
+          {experiences.map((exp) => (
+            <ExperienceItem key={`${exp.company}-${exp.period}`} {...exp} />
           ))}
           <div className="border-t border-border" />
         </div>

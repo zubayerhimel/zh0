@@ -86,14 +86,14 @@ const TechStackSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {techStack.map((category, idx) => (
-            <div key={idx} className="space-y-6">
+          {techStack.map((category) => (
+            <div key={category.category} className="space-y-6">
               <h3 className="font-mono text-xs text-muted-foreground uppercase tracking-widest pb-4 border-b border-border">
                 {category.category}
               </h3>
               <ul className="space-y-4">
-                {category.items.map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 group">
+                {category.items.map((item) => (
+                  <li key={item.name} className="flex items-center gap-3 group">
                     <item.icon className="text-xl text-muted-foreground group-hover:text-foreground" />
                     <span className="font-body text-sm text-foreground/50 group-hover:text-foreground">
                       {item.name}
