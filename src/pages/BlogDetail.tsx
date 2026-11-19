@@ -1,12 +1,12 @@
 import { blogs } from "@/data/blogs";
 import { ArrowLeft, ExternalLink } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, type ComponentProps } from "react";
 import ReactMarkdown from "react-markdown";
 import { Link, useParams } from "react-router-dom";
 import remarkGfm from "remark-gfm";
 
 // Custom renderer for code blocks
-const CodeBlock = ({ className, children }: any) => {
+const CodeBlock = ({ className, children }: ComponentProps<"code">) => {
   const match = /language-(\w+)/.exec(className || "");
   const language = match ? match[1] : "";
 
@@ -30,6 +30,10 @@ const BlogDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const blog = blogs.find((b) => b.slug === slug);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   if (!blog) {
     return (
       <div className="bg-background text-foreground min-h-screen flex items-center justify-center">
@@ -44,10 +48,6 @@ const BlogDetail = () => {
   }
 
   const suggestedBlogs = blogs.filter((b) => b.slug !== slug).slice(0, 2);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <div className="bg-background text-foreground min-h-screen">
