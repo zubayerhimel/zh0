@@ -24,8 +24,23 @@ export const jobs: Job[] = [
   {
     company: "WPP Production",
     location: "Dhaka",
-    roles: [{ title: "Frontend Developer", terms: "Full-time, on-site", start: "2026-02" }],
-    stack: ["React", "Front-end design"],
+    summary: "Front-end work for global brands in automotive and pharmaceuticals.",
+    roles: [
+      {
+        title: "Frontend Developer",
+        terms: "Full-time, on-site",
+        start: "2026-02",
+        highlights: [
+          "Architected and led 3 projects from start to finish, including one with a team of 4.",
+          "Built a UI library for internal projects with React, Next.js and Vite.",
+          "Built Drupal front ends for leading pharmaceutical companies.",
+          "Worked on AEM sites for Jaguar Land Rover and Range Rover.",
+          "Built an Ionic and Angular app for a Dubai-based car company.",
+          "Built features on top of LLM APIs.",
+        ],
+      },
+    ],
+    stack: ["React", "Next.js", "Vite", "Angular", "Ionic", "Drupal", "AEM", "LLM APIs"],
   },
   {
     company: "Devfik",
