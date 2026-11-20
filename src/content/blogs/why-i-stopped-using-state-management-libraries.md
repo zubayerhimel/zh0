@@ -8,9 +8,6 @@ readTime: "6 min read"
 
 For years, the first thing I'd install in any React project was Redux. It felt like a rite of passage — you weren't a "real" React developer until you'd wrestled with reducers, actions, and middleware. But somewhere along the way, I started questioning why I was adding so much complexity to apps that didn't need it. Read more about [React State Management](https://react.dev/learn/managing-state).
 
-![Coding on a laptop](https://images.unsplash.com/photo-1618477247222-ac591305ec62?q=80&w=2670&auto=format&fit=crop)
-*Minimalist coding setup*
-
 ## The Turning Point
 
 I was building a dashboard for a client — maybe 15 components deep. I had Redux Toolkit set up, RTK Query for data fetching, and a dozen slices managing everything from user preferences to modal states. Then I realized: most of my "global" state was actually just server cache.
