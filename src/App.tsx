@@ -1,6 +1,6 @@
 import { LazyMotion, MotionConfig } from "motion/react";
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router";
+import { BrowserRouter, Route, Routes, StaticRouter, useLocation } from "react-router";
 import { PageTransition } from "@/components/PageTransition";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -33,21 +33,33 @@ const AnimatedRoutes = () => {
   );
 };
 
-const App = () => (
-  <ThemeProvider defaultTheme="system" storageKey="app-theme">
-    <LazyMotion features={loadMotionFeatures} strict>
-      <MotionConfig reducedMotion="user">
-        <TooltipProvider>
-          <BrowserRouter>
-            <ScrollToTop />
-            <Layout>
-              <AnimatedRoutes />
-            </Layout>
-          </BrowserRouter>
-        </TooltipProvider>
-      </MotionConfig>
-    </LazyMotion>
-  </ThemeProvider>
-);
+/** The whole app. Pass `location` to render one URL without a browser (prerender build). */
+export const AppShell = ({ location }: { location?: string }) => {
+  const pages = (
+    <>
+      <ScrollToTop />
+      <Layout>
+        <AnimatedRoutes />
+      </Layout>
+    </>
+  );
+  return (
+    <ThemeProvider defaultTheme="system" storageKey="app-theme">
+      <LazyMotion features={loadMotionFeatures} strict>
+        <MotionConfig reducedMotion="user">
+          <TooltipProvider>
+            {location === undefined ? (
+              <BrowserRouter>{pages}</BrowserRouter>
+            ) : (
+              <StaticRouter location={location}>{pages}</StaticRouter>
+            )}
+          </TooltipProvider>
+        </MotionConfig>
+      </LazyMotion>
+    </ThemeProvider>
+  );
+};
+
+const App = () => <AppShell />;
 
 export default App;

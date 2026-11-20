@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { SeoCollectorContext, type SeoTags } from "@/lib/seo-context";
 
 export const SITE_URL = "https://www.zh0.dev";
 const SITE_NAME = "Zubayer Alam";
@@ -14,7 +15,7 @@ interface SeoProps {
   noindex?: boolean;
 }
 
-// index.html holds the defaults for crawlers that don't run JS; this keeps them in sync per route.
+// Prerendered HTML holds these tags for crawlers that don't run JS; this keeps them in sync on client-side navigation.
 const setTag = (selector: string, create: () => HTMLElement, attr: string, value: string | undefined) => {
   let el = document.head.querySelector<HTMLElement>(selector);
   if (value === undefined) {
@@ -41,10 +42,12 @@ const meta = (key: "name" | "property", name: string, value: string | undefined)
   );
 
 const Seo = ({ title, description, path, type = "website", publishedTime, noindex }: SeoProps) => {
-  useEffect(() => {
-    const fullTitle = title ? `${title} — ${SITE_NAME}` : `${SITE_NAME} — Product Engineer`;
-    const url = `${SITE_URL}${path}`;
+  const fullTitle = title ? `${title} — ${SITE_NAME}` : `${SITE_NAME} — Product Engineer`;
+  const url = `${SITE_URL}${path}`;
+  const collect = useContext(SeoCollectorContext);
+  collect?.({ title: fullTitle, description, url, type, publishedTime, noindex } satisfies SeoTags);
 
+  useEffect(() => {
     document.title = fullTitle;
     meta("name", "description", description);
     meta("property", "og:title", fullTitle);
@@ -63,7 +66,7 @@ const Seo = ({ title, description, path, type = "website", publishedTime, noinde
       "href",
       noindex ? undefined : url,
     );
-  }, [title, description, path, type, publishedTime, noindex]);
+  }, [fullTitle, description, url, type, publishedTime, noindex]);
 
   return null;
 };

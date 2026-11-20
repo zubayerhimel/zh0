@@ -8,7 +8,8 @@ type ThemeProviderProps = {
 };
 
 const darkQuery = "(prefers-color-scheme: dark)";
-const getSystemTheme = (): ResolvedTheme => (window.matchMedia(darkQuery).matches ? "dark" : "light");
+const isBrowser = typeof window !== "undefined";
+const getSystemTheme = (): ResolvedTheme => (isBrowser && window.matchMedia(darkQuery).matches ? "dark" : "light");
 
 export function ThemeProvider({
   children,
@@ -16,7 +17,9 @@ export function ThemeProvider({
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme);
+  const [theme, setTheme] = useState<Theme>(
+    () => (isBrowser && (localStorage.getItem(storageKey) as Theme)) || defaultTheme,
+  );
   const [systemTheme, setSystemTheme] = useState<ResolvedTheme>(getSystemTheme);
   const resolvedTheme = theme === "system" ? systemTheme : theme;
 

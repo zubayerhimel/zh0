@@ -9,7 +9,8 @@ const formatter = new Intl.DateTimeFormat("en-GB", {
 });
 
 const LocalClock = () => {
-  const [time, setTime] = useState(() => formatter.format(new Date()));
+  // Empty when prerendering, so the static HTML doesn't carry the build time.
+  const [time, setTime] = useState(() => (typeof window === "undefined" ? "" : formatter.format(new Date())));
 
   useEffect(() => {
     const interval = setInterval(() => setTime(formatter.format(new Date())), 1000);
