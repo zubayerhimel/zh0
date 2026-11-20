@@ -42,7 +42,7 @@ const meta = (key: "name" | "property", name: string, value: string | undefined)
 
 const Seo = ({ title, description, path, type = "website", publishedTime, noindex }: SeoProps) => {
   useEffect(() => {
-    const fullTitle = title ? `${title} — ${SITE_NAME}` : `${SITE_NAME} — Senior Software Engineer`;
+    const fullTitle = title ? `${title} — ${SITE_NAME}` : `${SITE_NAME} — Frontend Developer`;
     const url = `${SITE_URL}${path}`;
 
     document.title = fullTitle;

@@ -11,7 +11,7 @@ const Index = () => {
     <div className="bg-background text-foreground min-h-screen">
       <Seo
         path="/"
-        description="Zubayer Alam is a senior software engineer in Dhaka building fast, accessible web apps with React, Next.js and TypeScript."
+        description="Zubayer Alam is a frontend developer in Dhaka and co-founder of Devfik, building fast, accessible web apps with React, Next.js and TypeScript."
       />
       <HeroIntro />
       <ExperienceSection />

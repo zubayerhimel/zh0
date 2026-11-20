@@ -71,7 +71,7 @@ const HeroIntro = () => {
               >
                 <span className="h-px w-8 bg-primary"></span>
                 <p className="font-body text-sm text-primary tracking-widest uppercase font-medium">
-                  Senior Software Engineer
+                  Frontend developer
                 </p>
               </m.div>
 
@@ -103,16 +103,15 @@ const HeroIntro = () => {
               <div className="space-y-5 max-w-2xl">
                 <p className="font-body text-md leading-relaxed text-foreground/80">
                   <span className="font-display text-lg text-foreground font-medium italic pr-2">
-                    Building exceptional web experiences.
+                    I build fast, accessible web apps.
                   </span>
-                  I craft performant, accessible, and user-centric applications with modern JavaScript frameworks. My
-                  expertise spans React, Next.js, and Vue.js, with solid backend capabilities to deliver full-stack
-                  solutions.
+                  Since 2021 I've shipped CRM and SaaS products for BAT Bangladesh and Unilever, and sites for Jaguar
+                  Land Rover and leading pharmaceutical brands.
                 </p>
                 <p className="font-body text-md text-muted-foreground leading-relaxed">
-                  With years of experience shipping production-grade software, I focus on writing clean, maintainable
-                  code and creating intuitive interfaces that users love. Passionate about developer experience,
-                  performance optimization, and staying current with the evolving frontend ecosystem.
+                  Today I'm a frontend developer at WPP Production and co-founder of Devfik, a small product studio. I
+                  lead projects from first sketch to launch, and in my spare time I build small tools like Fling and
+                  Bookify.
                 </p>
               </div>
             </m.div>
