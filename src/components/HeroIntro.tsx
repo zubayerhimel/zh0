@@ -1,7 +1,7 @@
 import { ArrowUpRight, Check, Copy } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
-import portrait from "@/assets/portrait.png";
+import portrait from "@/assets/portrait.webp";
 
 const HeroIntro = () => {
   const [copied, setCopied] = useState(false);
@@ -31,7 +31,10 @@ const HeroIntro = () => {
             <div className="relative w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden shadow-2xl transition-all duration-700 hover:shadow-primary/20 hover:-translate-y-2">
               <img
                 src={portrait}
-                alt="Zubayer Alam Portrait"
+                alt="Zubayer Alam"
+                width={768}
+                height={768}
+                fetchPriority="high"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
               />
             </div>
