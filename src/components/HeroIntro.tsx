@@ -6,11 +6,15 @@ import portrait from "@/assets/portrait.webp";
 const HeroIntro = () => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = (e: React.MouseEvent) => {
+  const handleCopyEmail = async (e: React.MouseEvent) => {
     e.preventDefault();
-    navigator.clipboard.writeText("zubayerhimel0@gmail.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    try {
+      await navigator.clipboard.writeText("zubayerhimel0@gmail.com");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = "mailto:zubayerhimel0@gmail.com";
+    }
   };
 
   return (
@@ -151,9 +155,9 @@ const HeroIntro = () => {
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="opacity-0 group-hover/email:opacity-100 group-hover/email:translate-x-0.5 transition-transform duration-300 transition-all text-muted-foreground hover:text-foreground transition-opacity"
+                  className="opacity-0 pointer-coarse:opacity-100 group-hover/email:opacity-100 focus-visible:opacity-100 group-hover/email:translate-x-0.5 transition-all duration-300 text-muted-foreground hover:text-foreground"
                   title="Copy email address"
-                  aria-label="Copy email address"
+                  aria-label={copied ? "Email copied" : "Copy email address"}
                 >
                   {copied ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
                 </button>
