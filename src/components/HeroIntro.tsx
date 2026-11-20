@@ -70,9 +70,7 @@ const HeroIntro = () => {
                 className="flex items-center gap-3"
               >
                 <span className="h-px w-8 bg-primary"></span>
-                <p className="font-body text-sm text-primary tracking-widest uppercase font-medium">
-                  Frontend developer
-                </p>
+                <p className="font-body text-sm text-primary tracking-widest uppercase font-medium">Product engineer</p>
               </m.div>
 
               <m.h1
