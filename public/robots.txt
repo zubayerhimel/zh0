@@ -1,16 +1,7 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# Search engines and AI agents are welcome.
 User-agent: *
 Allow: /
+
+# A plain-Markdown summary of this site for LLMs and agents: https://www.zh0.dev/llms.txt
 
 Sitemap: https://www.zh0.dev/sitemap.xml

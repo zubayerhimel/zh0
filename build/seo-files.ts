@@ -26,7 +26,7 @@ const readPosts = (dir: string) =>
 /** Emits sitemap.xml and rss.xml from src/content/blogs at build time. */
 export const seoFiles = (): Plugin => ({
   name: "seo-files",
-  apply: "build",
+  apply: (_config, env) => env.command === "build" && !env.isSsrBuild,
   generateBundle() {
     const blogDir = path.resolve(import.meta.dirname, "../src/content/blogs");
     const posts = readPosts(blogDir);
