@@ -5,7 +5,7 @@ import type { Job } from "@/data/experience";
 import type { Project } from "@/data/projects";
 import { formatMonth } from "@/lib/month-span";
 
-export const CONTACT_LINKS = [
+const CONTACT_LINKS = [
   { label: "GitHub", url: "https://github.com/zubayerhimel" },
   { label: "LinkedIn", url: "https://linkedin.com/in/zubayerhimel" },
   { label: "X (Twitter)", url: "https://twitter.com/zubayerhimel0" },
