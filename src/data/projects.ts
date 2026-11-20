@@ -56,6 +56,15 @@ export const projects: Project[] = [
     source: "https://github.com/zubayerhimel/bookify-pied",
   },
   {
+    title: "Lettercn",
+    kind: "Web app",
+    description:
+      "A studio for handwritten-style letters. Choose a handwriting font, including Bangla, then paper, ink and ruling, and write on true A4, US Letter, postcard or journal pages. Export a sharp PNG or a print-ready multi-page PDF, with a matching envelope.",
+    stack: ["TanStack Start", "React", "TypeScript", "Zustand", "html-to-image", "jsPDF", "Tailwind CSS"],
+    url: "https://lettercn.zh0.dev",
+    source: "https://github.com/zubayerhimel/lettercn",
+  },
+  {
     title: "Memory Booth",
     kind: "Web app",
     description:
