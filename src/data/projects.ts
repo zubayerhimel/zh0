@@ -5,6 +5,7 @@ import lettercn from "@/assets/projects/lettercn.webp";
 import mailframe from "@/assets/projects/mailframe.webp";
 import memoryBooth from "@/assets/projects/memorybooth.webp";
 import nudge from "@/assets/projects/nudge.webp";
+import ogee from "@/assets/projects/ogee.webp";
 
 export interface Project {
   title: string;
@@ -23,6 +24,16 @@ export interface Project {
 
 // Newest first.
 export const projects: Project[] = [
+  {
+    title: "OGee",
+    kind: "Web app",
+    description:
+      "Design the image a link shows when it's shared. Paste a URL to pull its title and description, adjust a template on a live canvas, and export at 1200×630 with ready-to-paste meta tags for Next.js, Astro, Nuxt and more. It also checks any page's Open Graph and X tags and scores them.",
+    stack: ["TanStack Start", "React", "TypeScript", "Canvas API", "Zod", "Tailwind CSS"],
+    url: "https://ogee.zh0.dev",
+    image: ogee,
+    source: "https://github.com/zubayerhimel/ogee",
+  },
   {
     title: "Fling",
     kind: "Web app",
