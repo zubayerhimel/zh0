@@ -1,3 +1,11 @@
+import autoBookmark from "@/assets/projects/auto-bookmark.webp";
+import bookify from "@/assets/projects/bookify.webp";
+import fling from "@/assets/projects/fling.webp";
+import lettercn from "@/assets/projects/lettercn.webp";
+import mailframe from "@/assets/projects/mailframe.webp";
+import memoryBooth from "@/assets/projects/memorybooth.webp";
+import nudge from "@/assets/projects/nudge.webp";
+
 export interface Project {
   title: string;
   /** What it is, in a few words, e.g. "Web app". */
@@ -9,6 +17,8 @@ export interface Project {
   /** Public source code. Omitted for private repositories. */
   source?: string;
   status?: string;
+  /** Screenshot of the live site, 16:10. */
+  image?: string;
 }
 
 // Newest first.
@@ -20,6 +30,7 @@ export const projects: Project[] = [
       "Send files or a short secret between any two devices without an account. Share a code, link or QR code; files travel directly between browsers, end-to-end encrypted, and nothing is stored on a server.",
     stack: ["React", "TypeScript", "Vite", "WebRTC", "Web Crypto", "Node.js", "WebSocket", "Tailwind CSS"],
     url: "https://fling.zh0.dev",
+    image: fling,
   },
   {
     title: "Mailframe",
@@ -28,6 +39,7 @@ export const projects: Project[] = [
       "A visual email editor that compiles designs to responsive, Outlook-safe HTML, with dark-mode preview, accessibility warnings and AI-drafted templates.",
     stack: ["TanStack Start", "React", "TypeScript", "Convex", "Clerk", "OpenRouter", "Tailwind CSS"],
     url: "https://mailframe.zh0.dev",
+    image: mailframe,
   },
   {
     title: "Nudge",
@@ -36,6 +48,7 @@ export const projects: Project[] = [
       "Timers, reminders and alarms that ring on time, even when the app is closed and the phone is locked. Type or say “remind me to call mom tomorrow at 6pm” and it's scheduled. Local-first and works offline.",
     stack: ["React Native", "Expo", "TypeScript", "SQLite", "Kotlin"],
     url: "https://nudge.zh0.dev",
+    image: nudge,
   },
   {
     title: "Auto Bookmark",
@@ -44,6 +57,7 @@ export const projects: Project[] = [
       "Save any page, post on X or YouTube video in one click. AI summarizes it and files it under a category, and you find it again by describing what you remember.",
     stack: ["Next.js", "TypeScript", "Supabase", "pgvector", "Drizzle", "Clerk", "Vercel AI SDK", "Chrome extension"],
     url: "https://auto-bookmark.zh0.dev",
+    image: autoBookmark,
     source: "https://github.com/zubayerhimel/auto-bookmark",
   },
   {
@@ -53,6 +67,7 @@ export const projects: Project[] = [
       "A calm PDF reader. Highlight passages, collect quotes, leave notes and resume exactly where you left off, with everything kept privately on your device.",
     stack: ["React", "TypeScript", "Vite", "PDF.js", "IndexedDB", "Tailwind CSS"],
     url: "https://bookify.zh0.dev",
+    image: bookify,
     source: "https://github.com/zubayerhimel/bookify-pied",
   },
   {
@@ -62,6 +77,7 @@ export const projects: Project[] = [
       "A studio for handwritten-style letters. Choose a handwriting font, including Bangla, then paper, ink and ruling, and write on true A4, US Letter, postcard or journal pages. Export a sharp PNG or a print-ready multi-page PDF, with a matching envelope.",
     stack: ["TanStack Start", "React", "TypeScript", "Zustand", "html-to-image", "jsPDF", "Tailwind CSS"],
     url: "https://lettercn.zh0.dev",
+    image: lettercn,
     source: "https://github.com/zubayerhimel/lettercn",
   },
   {
@@ -71,6 +87,7 @@ export const projects: Project[] = [
       "A photo booth in the browser. Shoot a photo strip or collage with your camera, add filters, stickers and text, or record a short clip, then download or share it.",
     stack: ["React", "TypeScript", "Vite", "Canvas API", "MediaRecorder", "Tailwind CSS"],
     url: "https://memorybooth.zh0.dev",
+    image: memoryBooth,
     source: "https://github.com/zubayerhimel/memorybooth",
   },
   {
