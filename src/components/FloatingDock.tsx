@@ -63,14 +63,14 @@ export const FloatingDock = () => {
                 href="/llms.txt"
                 target="_blank"
                 rel="noopener"
-                aria-label="llms.txt, a plain-text version of this site for AI agents"
+                aria-label="For agents (llms.txt)"
                 className="p-2 rounded-full hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 active:scale-95"
               >
                 <Bot className="h-4 w-4" />
               </a>
             </TooltipTrigger>
             <TooltipContent side="top" className="text-xs font-medium">
-              llms.txt for AI agents
+              For agents
             </TooltipContent>
           </Tooltip>
 
