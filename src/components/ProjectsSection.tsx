@@ -1,30 +1,4 @@
-const projects = [
-  {
-    title: "Neodesk",
-    description: "A collaborative digital asset management platform for photographers and videographers.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "AWS S3", "Cloudinary"],
-    link: "https://stage.neodesk.io",
-  },
-  {
-    title: "CLI Tool",
-    description:
-      "A developer CLI that automates the boring parts of project setup. 200+ stars on GitHub, mostly from my alt accounts.",
-    tech: ["Go", "Cobra", "SQLite"],
-    link: "#",
-  },
-  {
-    title: "Data Pipeline",
-    description: "An ETL pipeline processing 10M+ events daily. It runs so smoothly that I sometimes forget it exists.",
-    tech: ["Python", "Apache Kafka", "PostgreSQL"],
-    link: "#",
-  },
-  {
-    title: "Design System",
-    description: "A component library used across 3 products internally. Documentation that people actually read.",
-    tech: ["React", "Storybook", "SCSS"],
-    link: "#",
-  },
-];
+import { projects } from "@/data/projects";
 
 const ProjectsSection = () => {
   return (
@@ -32,35 +6,71 @@ const ProjectsSection = () => {
       <div className="container max-w-5xl mx-auto px-6">
         <h2 className="text-5xl md:text-6xl font-display font-light text-foreground mb-16 italic">Projects</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          {projects.map((project, i) => (
-            <a
+        <ul>
+          {projects.map((project) => (
+            <li
               key={project.title}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`bg-background py-8 px-4 md:p-8 group hover:bg-card transition-colors block border-border ${
-                i < projects.length - 1 ? "border-b" : ""
-              } ${i === projects.length - 2 ? "md:border-b-0" : ""} ${i % 2 === 0 ? "md:border-r" : ""}`}
+              className="relative border-t border-border py-10 grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 -mx-6 px-6 transition-colors has-[a:hover]:bg-card/50"
             >
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="font-display text-2xl text-foreground">{project.title}</h3>
-                <span className="font-display text-lg text-muted-foreground group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-                  ↗
-                </span>
+              <div className="font-mono text-xs text-muted-foreground space-y-1 md:pt-2">
+                <p>{project.kind}</p>
+                {project.status && <p className="text-foreground">{project.status}</p>}
               </div>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((t, j) => (
-                  <span key={t} className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">
-                    {t}
-                    {j < project.tech.length - 1 ? " ·" : ""}
-                  </span>
-                ))}
+
+              <div className="md:col-span-3">
+                <h3 className="font-display text-2xl md:text-3xl text-foreground">
+                  {project.url ? (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group after:absolute after:inset-0 focus-visible:outline-none focus-visible:after:outline focus-visible:after:outline-1 focus-visible:after:outline-foreground"
+                    >
+                      {project.title}
+                      <span
+                        aria-hidden="true"
+                        className="inline-block ml-3 text-lg text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                      >
+                        ↗
+                      </span>
+                    </a>
+                  ) : (
+                    project.title
+                  )}
+                </h3>
+                <p className="font-body text-sm md:text-base text-muted-foreground mt-3 max-w-2xl leading-relaxed">
+                  {project.description}
+                </p>
+                <ul
+                  aria-label="Stack"
+                  className="flex flex-wrap gap-x-4 gap-y-1 mt-5 font-mono text-xs text-muted-foreground"
+                >
+                  {project.stack.map((tech) => (
+                    <li key={tech}>{tech}</li>
+                  ))}
+                </ul>
+                {(project.url || project.source) && (
+                  <div className="flex gap-6 mt-5 font-mono text-xs">
+                    {project.url && (
+                      <span className="text-foreground underline underline-offset-4">{new URL(project.url).host}</span>
+                    )}
+                    {project.source && (
+                      <a
+                        href={project.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative z-10 text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
+                      >
+                        Source on GitHub
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
-            </a>
+            </li>
           ))}
-        </div>
+        </ul>
+        <div className="border-t border-border -mx-6" />
       </div>
     </section>
   );
