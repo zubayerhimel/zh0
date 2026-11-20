@@ -1,68 +1,73 @@
+import { LayoutTemplate } from "lucide-react";
 import {
+  SiAngular,
+  SiClerk,
+  SiConvex,
   SiDocker,
+  SiDrupal,
+  SiExpo,
   SiExpress,
-  SiFirebase,
-  SiFramer,
   SiGit,
-  SiGo,
-  SiGooglecloud,
-  SiJavascript,
+  SiIonic,
+  SiKotlin,
   SiMongodb,
   SiNestjs,
-  SiNetlify,
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
-  SiPython,
   SiReact,
-  SiRedis,
-  SiShadcnui,
+  SiSupabase,
   SiTailwindcss,
+  SiTanstack,
   SiTypescript,
   SiVercel,
+  SiVite,
   SiVuedotjs,
 } from "react-icons/si";
 
 const techStack = [
   {
-    category: "Languages",
-    items: [
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "JavaScript", icon: SiJavascript },
-      { name: "Python", icon: SiPython },
-      { name: "Go", icon: SiGo },
-    ],
-  },
-  {
     category: "Frontend",
     items: [
+      { name: "TypeScript", icon: SiTypescript },
       { name: "React", icon: SiReact },
-      { name: "Vue.js", icon: SiVuedotjs },
       { name: "Next.js", icon: SiNextdotjs },
+      { name: "Vue.js", icon: SiVuedotjs },
+      { name: "Angular", icon: SiAngular },
+      { name: "TanStack Start", icon: SiTanstack },
+      { name: "Vite", icon: SiVite },
       { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "shadcn/ui", icon: SiShadcnui },
-      { name: "Framer Motion", icon: SiFramer },
     ],
   },
   {
-    category: "Backend & DB",
+    category: "Mobile",
+    items: [
+      { name: "React Native", icon: SiReact },
+      { name: "Expo", icon: SiExpo },
+      { name: "Ionic", icon: SiIonic },
+      { name: "Kotlin", icon: SiKotlin },
+    ],
+  },
+  {
+    category: "Backend & data",
     items: [
       { name: "Node.js", icon: SiNodedotjs },
       { name: "NestJS", icon: SiNestjs },
       { name: "Express", icon: SiExpress },
+      { name: "Convex", icon: SiConvex },
+      { name: "Supabase", icon: SiSupabase },
       { name: "PostgreSQL", icon: SiPostgresql },
       { name: "MongoDB", icon: SiMongodb },
-      { name: "Redis", icon: SiRedis },
-      { name: "Firebase", icon: SiFirebase },
     ],
   },
   {
-    category: "Infra & Tools",
+    category: "CMS & tools",
     items: [
+      { name: "Drupal", icon: SiDrupal },
+      { name: "Adobe AEM", icon: LayoutTemplate },
+      { name: "Clerk", icon: SiClerk },
       { name: "Docker", icon: SiDocker },
-      { name: "Google Cloud", icon: SiGooglecloud },
       { name: "Vercel", icon: SiVercel },
-      { name: "Netlify", icon: SiNetlify },
       { name: "Git", icon: SiGit },
     ],
   },
@@ -92,7 +97,7 @@ const TechStackSection = () => {
               <ul className="space-y-4">
                 {category.items.map((item) => (
                   <li key={item.name} className="flex items-center gap-3 group">
-                    <item.icon className="text-xl text-muted-foreground group-hover:text-foreground" />
+                    <item.icon className="size-5 shrink-0 text-muted-foreground group-hover:text-foreground" />
                     <span className="font-body text-sm text-muted-foreground group-hover:text-foreground">
                       {item.name}
                     </span>
