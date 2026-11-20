@@ -71,6 +71,7 @@ export const projects: Project[] = [
       "A photo booth in the browser. Shoot a photo strip or collage with your camera, add filters, stickers and text, or record a short clip, then download or share it.",
     stack: ["React", "TypeScript", "Vite", "Canvas API", "MediaRecorder", "Tailwind CSS"],
     url: "https://memorybooth.zh0.dev",
+    source: "https://github.com/zubayerhimel/memorybooth",
   },
   {
     title: "Neodesk",
