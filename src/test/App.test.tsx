@@ -20,8 +20,7 @@ describe("App smoke test", () => {
   afterEach(() => {
     act(() => root.unmount());
     container.remove();
-    const unexpectedErrors = consoleError.mock.calls.filter(([msg]) => !String(msg).startsWith("404 Error"));
-    expect(unexpectedErrors).toEqual([]);
+    expect(consoleError.mock.calls).toEqual([]);
     consoleError.mockRestore();
   });
 
@@ -52,6 +51,7 @@ describe("App smoke test", () => {
 
   it("renders the 404 page for unknown routes", async () => {
     await renderAt("/does-not-exist");
-    expect(container.textContent).toContain("404");
+    expect(container.querySelector("h1")?.textContent).toBe("This page doesn't exist.");
+    expect(container.textContent).toContain("/does-not-exist");
   });
 });
