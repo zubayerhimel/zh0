@@ -3,7 +3,7 @@ import path from "node:path";
 import type { Plugin } from "vite";
 import { parseBlogDate, parseFrontmatter } from "../src/lib/blog-meta";
 
-const SITE_URL = "https://zubayeralam.com";
+const SITE_URL = "https://www.zh0.dev";
 
 const escapeXml = (value: string) =>
   value.replace(/[<>&'"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", "'": "&apos;", '"': "&quot;" })[c] ?? c);

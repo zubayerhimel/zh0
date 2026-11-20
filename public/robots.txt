@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://zubayeralam.com/sitemap.xml
+Sitemap: https://www.zh0.dev/sitemap.xml
