@@ -27,7 +27,7 @@ export const projects: Project[] = [
     description:
       "A visual email editor that compiles designs to responsive, Outlook-safe HTML, with dark-mode preview, accessibility warnings and AI-drafted templates.",
     stack: ["TanStack Start", "React", "TypeScript", "Convex", "Clerk", "OpenRouter", "Tailwind CSS"],
-    status: "In development",
+    url: "https://mailframe.zh0.dev",
   },
   {
     title: "Nudge",
