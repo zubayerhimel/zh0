@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Zubayer Alam</title>
+    <script>
+      // Apply the saved/system theme before first paint to avoid a light flash in dark mode.
+      try {
+        const saved = localStorage.getItem("app-theme");
+        const dark = saved === "dark" || (saved !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.add(dark ? "dark" : "light");
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+      } catch {}
+    </script>
     <meta name="description" content="Zubayer Alam - Full Stack Developer & Creative Technologist" />
     <meta name="author" content="Zubayer Alam" />
 

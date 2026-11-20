@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { type Theme, ThemeProviderContext } from "@/hooks/use-theme";
+import { type ResolvedTheme, type Theme, ThemeProviderContext } from "@/hooks/use-theme";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
   defaultTheme?: Theme;
   storageKey?: string;
 };
+
+const darkQuery = "(prefers-color-scheme: dark)";
+const getSystemTheme = (): ResolvedTheme => (window.matchMedia(darkQuery).matches ? "dark" : "light");
 
 export function ThemeProvider({
   children,
@@ -14,24 +17,26 @@ export function ThemeProvider({
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme);
+  const [systemTheme, setSystemTheme] = useState<ResolvedTheme>(getSystemTheme);
+  const resolvedTheme = theme === "system" ? systemTheme : theme;
+
+  useEffect(() => {
+    const media = window.matchMedia(darkQuery);
+    const onChange = () => setSystemTheme(getSystemTheme());
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, []);
 
   useEffect(() => {
     const root = window.document.documentElement;
-
     root.classList.remove("light", "dark");
-
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-
-      root.classList.add(systemTheme);
-      return;
-    }
-
-    root.classList.add(theme);
-  }, [theme]);
+    root.classList.add(resolvedTheme);
+    root.style.colorScheme = resolvedTheme;
+  }, [resolvedTheme]);
 
   const value = {
     theme,
+    resolvedTheme,
     setTheme: (theme: Theme) => {
       localStorage.setItem(storageKey, theme);
       setTheme(theme);
