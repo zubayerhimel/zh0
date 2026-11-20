@@ -1,5 +1,5 @@
 import { ArrowUpRight, Check, Copy } from "lucide-react";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { useState } from "react";
 import portrait from "@/assets/portrait.webp";
 
@@ -22,7 +22,7 @@ const HeroIntro = () => {
       <div className="container max-w-6xl mx-auto px-6 py-24 z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
           {/* Portrait Column */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -40,7 +40,7 @@ const HeroIntro = () => {
             </div>
 
             {/* Status Badge */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
@@ -53,13 +53,13 @@ const HeroIntro = () => {
               <span className="text-xs font-mono font-medium tracking-tight text-foreground/90">
                 Available for work
               </span>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Text Column */}
           <div className="md:col-span-8 space-y-8 md:space-y-10 lg:pl-8">
             <div className="space-y-4">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -69,9 +69,9 @@ const HeroIntro = () => {
                 <p className="font-body text-sm text-primary tracking-widest uppercase font-medium">
                   Senior Software Engineer
                 </p>
-              </motion.div>
+              </m.div>
 
-              <motion.h1
+              <m.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -79,17 +79,17 @@ const HeroIntro = () => {
               >
                 Zubayer <br className="hidden md:block" />
                 <span className="text-muted-foreground/40 font-light">Alam.</span>
-              </motion.h1>
+              </m.h1>
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="relative pl-6 md:pl-8"
             >
               {/* Animated left border */}
-              <motion.div
+              <m.div
                 initial={{ height: 0 }}
                 animate={{ height: "100%" }}
                 transition={{ duration: 0.8, delay: 0.6, ease: "easeInOut" }}
@@ -111,7 +111,7 @@ const HeroIntro = () => {
                   performance optimization, and staying current with the evolving frontend ecosystem.
                 </p>
               </div>
-            </motion.div>
+            </m.div>
 
             <div className="flex flex-wrap gap-3">
               <a

@@ -1,4 +1,5 @@
-import { AnimatePresence, motion, type Transition } from "motion/react";
+import { AnimatePresence, type Transition } from "motion/react";
+import * as m from "motion/react-m";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router";
 
@@ -43,7 +44,7 @@ export function PageTransition({ children }: PageTransitionProps) {
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
+      <m.div
         key={location.pathname}
         initial={shouldAnimate ? "initial" : undefined}
         animate="animate"
@@ -53,7 +54,7 @@ export function PageTransition({ children }: PageTransitionProps) {
         className="w-full"
       >
         {children}
-      </motion.div>
+      </m.div>
     </AnimatePresence>
   );
 }

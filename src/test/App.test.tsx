@@ -28,7 +28,11 @@ describe("App smoke test", () => {
   const renderAt = async (path: string) => {
     window.history.pushState({}, "", path);
     root = createRoot(container);
-    await act(async () => root.render(<App />));
+    await act(async () => {
+      root.render(<App />);
+      // Let lazily loaded chunks resolve inside act().
+      await Promise.all([import("@/pages/BlogDetail"), import("@/lib/motion-features")]);
+    });
   };
 
   it("renders the home page", async () => {
