@@ -2,7 +2,7 @@ import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import type { Plugin } from "vite";
-import type { SeoTags } from "../src/lib/seo-context";
+import type { SeoTags } from "../src/lib/seo-context.ts";
 
 /** Exports of src/entry-server.tsx after the SSR build. */
 interface ServerEntry {

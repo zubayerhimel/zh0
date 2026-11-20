@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import type { Plugin } from "vite";
-import { parseBlogDate, parseFrontmatter } from "../src/lib/blog-meta";
+import { parseBlogDate, parseFrontmatter } from "../src/lib/blog-meta.ts";
 
 const SITE_URL = "https://www.zh0.dev";
 

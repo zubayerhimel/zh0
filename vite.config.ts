@@ -3,8 +3,8 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react-swc";
 import { componentTagger } from "lovable-tagger";
 import { defineConfig } from "vite";
-import { agentFilesDev, prerender } from "./build/prerender";
-import { seoFiles } from "./build/seo-files";
+import { agentFilesDev, prerender } from "./build/prerender.ts";
+import { seoFiles } from "./build/seo-files.ts";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
