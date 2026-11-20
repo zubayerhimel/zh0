@@ -47,11 +47,14 @@ describe("App smoke test", () => {
   it("renders a blog post", async () => {
     await renderAt(`/blog/${blogs[0].slug}`);
     expect(container.querySelector("h1")?.textContent).toBe(blogs[0].title);
+    expect(document.title).toBe(`${blogs[0].title} — Zubayer Alam`);
+    expect(document.querySelector('meta[property="og:type"]')?.getAttribute("content")).toBe("article");
   });
 
   it("renders the 404 page for unknown routes", async () => {
     await renderAt("/does-not-exist");
     expect(container.querySelector("h1")?.textContent).toBe("This page doesn't exist.");
     expect(container.textContent).toContain("/does-not-exist");
+    expect(document.querySelector('meta[name="robots"]')?.getAttribute("content")).toBe("noindex");
   });
 });

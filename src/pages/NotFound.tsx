@@ -1,10 +1,12 @@
 import { Link, useLocation } from "react-router";
+import Seo from "@/components/Seo";
 
 const NotFound = () => {
   const { pathname } = useLocation();
 
   return (
     <main className="bg-background text-foreground min-h-screen flex items-center">
+      <Seo title="Page not found" path={pathname} description="This page doesn't exist." noindex />
       <div className="container max-w-5xl mx-auto px-6 py-24">
         <p className="font-mono text-xs text-muted-foreground mb-6">404</p>
         <h1 className="font-display text-5xl md:text-7xl font-light italic leading-none">This page doesn't exist.</h1>

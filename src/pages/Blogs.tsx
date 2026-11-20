@@ -1,9 +1,15 @@
 import { Link } from "react-router";
+import Seo from "@/components/Seo";
 import { blogs } from "@/data/blogs";
 
 const Blogs = () => {
   return (
     <div className="bg-background text-foreground min-h-screen">
+      <Seo
+        title="Writing"
+        path="/blogs"
+        description="Notes by Zubayer Alam on frontend engineering, React, Next.js and building for the web."
+      />
       <div className="container max-w-5xl mx-auto px-6 py-24">
         <div className="mb-20">
           <Link

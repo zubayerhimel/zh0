@@ -3,6 +3,7 @@ import { type ComponentProps, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { Link, useParams } from "react-router";
 import remarkGfm from "remark-gfm";
+import Seo from "@/components/Seo";
 import { blogs } from "@/data/blogs";
 
 // Custom renderer for code blocks
@@ -38,6 +39,7 @@ const BlogDetail = () => {
   if (!blog) {
     return (
       <div className="bg-background text-foreground min-h-screen flex items-center justify-center">
+        <Seo title="Post not found" path={`/blog/${slug}`} description="This post doesn't exist." noindex />
         <div className="text-center">
           <h1 className="font-display text-4xl mb-4">Post not found</h1>
           <Link to="/" className="font-mono text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -52,6 +54,13 @@ const BlogDetail = () => {
 
   return (
     <div className="bg-background text-foreground min-h-screen">
+      <Seo
+        title={blog.title}
+        description={blog.excerpt}
+        path={`/blog/${blog.slug}`}
+        type="article"
+        publishedTime={blog.publishedAt || undefined}
+      />
       <article className="container max-w-3xl mx-auto px-6 py-16 md:py-24">
         {/* Back link */}
         <Link
