@@ -1,4 +1,4 @@
-import { Home, Moon, NotebookText, Sun } from "lucide-react";
+import { BriefcaseBusiness, Home, Mail, Moon, NotebookText, Sun } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import { useTheme } from "@/hooks/use-theme";
 import { cn } from "@/lib/utils";
@@ -12,23 +12,21 @@ export const FloatingDock = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
 
+  const onHome = location.pathname === "/";
   const navItems = [
+    { name: "Home", icon: Home, href: "/", active: onHome && !location.hash },
+    { name: "Work", icon: BriefcaseBusiness, href: "/#experience", active: onHome && location.hash === "#experience" },
     {
-      name: "Home",
-      icon: Home,
-      href: "/",
-      active: location.pathname === "/",
-    },
-    {
-      name: "Blogs",
+      name: "Writing",
       icon: NotebookText,
       href: "/blogs",
       active: location.pathname === "/blogs" || location.pathname.startsWith("/blog/"),
     },
+    { name: "Contact", icon: Mail, href: "/#contact", active: onHome && location.hash === "#contact" },
   ];
 
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+    <nav aria-label="Main" className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
       <div className="flex items-center gap-2 p-1 rounded-full border border-border/40 bg-background/80 backdrop-blur-md shadow-2xl transition-all duration-300 hover:border-border/80">
         <TooltipProvider delayDuration={0}>
           {navItems.map((item) => (
@@ -36,6 +34,8 @@ export const FloatingDock = () => {
               <TooltipTrigger asChild>
                 <Link
                   to={item.href}
+                  aria-label={item.name}
+                  aria-current={item.active ? "page" : undefined}
                   className={cn(
                     "relative p-2 rounded-full transition-all duration-300 group",
                     item.active
@@ -62,21 +62,21 @@ export const FloatingDock = () => {
               <button
                 type="button"
                 onClick={toggleTheme}
+                aria-label={resolvedTheme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
                 className="p-2 rounded-full hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 active:scale-95"
               >
                 <div className="relative h-4 w-4">
                   <Sun className="absolute h-full w-full rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                   <Moon className="absolute h-full w-full rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                 </div>
-                <span className="sr-only">Toggle theme</span>
               </button>
             </TooltipTrigger>
             <TooltipContent side="top" className="text-xs font-medium">
-              Toggle Theme
+              {resolvedTheme === "dark" ? "Light theme" : "Dark theme"}
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </div>
-    </div>
+    </nav>
   );
 };

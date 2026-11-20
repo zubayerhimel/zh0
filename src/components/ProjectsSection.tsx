@@ -28,7 +28,7 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section className="py-24">
+    <section id="projects" className="py-24 scroll-mt-4">
       <div className="container max-w-5xl mx-auto px-6">
         <h2 className="text-5xl md:text-6xl font-display font-light text-foreground mb-16 italic">Projects</h2>
 

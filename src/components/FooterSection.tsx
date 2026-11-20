@@ -2,7 +2,7 @@ const FooterSection = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="py-16 border-t border-border">
+    <footer id="contact" className="py-16 border-t border-border">
       <div className="container max-w-5xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>
@@ -20,7 +20,7 @@ const FooterSection = () => {
               href={`https://github.com/zubayerhimel`}
               className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors"
             >
-              Github
+              GitHub
             </a>
             <a
               href={`https://linkedin.com/in/zubayerhimel`}
