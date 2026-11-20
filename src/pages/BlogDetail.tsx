@@ -3,8 +3,10 @@ import { type ComponentProps, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { Link, useParams } from "react-router";
 import remarkGfm from "remark-gfm";
+import CopyForAgentsButton from "@/components/CopyForAgentsButton";
 import Seo from "@/components/Seo";
 import { blogs } from "@/data/blogs";
+import { blogMarkdown } from "@/lib/llms";
 
 // Custom renderer for code blocks
 const CodeBlock = ({ className, children }: ComponentProps<"code">) => {
@@ -77,6 +79,9 @@ const BlogDetail = () => {
             <span className="font-mono text-xs text-muted-foreground">{blog.date}</span>
             <span className="text-muted-foreground">·</span>
             <span className="font-mono text-xs text-muted-foreground">{blog.readTime}</span>
+            <span className="ml-auto">
+              <CopyForAgentsButton markdown={blogMarkdown(blog)} />
+            </span>
           </div>
           <h1 className="font-display text-4xl md:text-6xl font-light text-foreground leading-tight md:leading-none">
             {blog.title}
