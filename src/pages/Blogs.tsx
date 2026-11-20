@@ -1,11 +1,9 @@
 import { Link } from "react-router";
-import ISTClock from "@/components/ISTClock";
 import { blogs } from "@/data/blogs";
 
 const Blogs = () => {
   return (
     <div className="bg-background text-foreground min-h-screen">
-      <ISTClock />
       <div className="container max-w-5xl mx-auto px-6 py-24">
         <div className="mb-20">
           <Link

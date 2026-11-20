@@ -1,30 +1,29 @@
 import { useEffect, useState } from "react";
 
-const ISTClock = () => {
-  const [time, setTime] = useState("");
+const formatter = new Intl.DateTimeFormat("en-GB", {
+  timeZone: "Asia/Dhaka",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: false,
+});
+
+const LocalClock = () => {
+  const [time, setTime] = useState(() => formatter.format(new Date()));
 
   useEffect(() => {
-    const update = () => {
-      const now = new Date();
-      const ist = new Intl.DateTimeFormat("en-IN", {
-        timeZone: "Asia/Dhaka",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      }).format(now);
-      setTime(ist);
-    };
-    update();
-    const interval = setInterval(update, 1000);
+    const interval = setInterval(() => setTime(formatter.format(new Date())), 1000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="fixed top-6 right-6 z-50 font-mono text-xs tracking-widest text-muted-foreground">
-      <span className="opacity-50">BST</span> <span>{time}</span>
-    </div>
+    <p
+      className="font-mono text-xs tracking-widest text-muted-foreground"
+      title="My local time in Dhaka, Bangladesh (GMT+6)"
+    >
+      <span className="opacity-60">Dhaka</span> <time className="tabular-nums">{time}</time>
+    </p>
   );
 };
 
-export default ISTClock;
+export default LocalClock;

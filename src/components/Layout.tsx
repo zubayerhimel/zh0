@@ -1,5 +1,6 @@
 import type React from "react";
 import { FloatingDock } from "./FloatingDock";
+import SiteHeader from "./SiteHeader";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -7,7 +8,8 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen pb-24">
+    <div className="relative min-h-screen pb-24">
+      <SiteHeader />
       {children}
       <FloatingDock />
     </div>
