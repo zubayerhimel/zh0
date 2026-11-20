@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, Home, Mail, Moon, NotebookText, Sun } from "lucide-react";
+import { Bot, BriefcaseBusiness, Home, Mail, Moon, NotebookText, Sun } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import { useTheme } from "@/hooks/use-theme";
 import { cn } from "@/lib/utils";
@@ -56,6 +56,23 @@ export const FloatingDock = () => {
           ))}
 
           <div className="w-px h-6 bg-border mx-1" />
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a
+                href="/llms.txt"
+                target="_blank"
+                rel="noopener"
+                aria-label="llms.txt, a plain-text version of this site for AI agents"
+                className="p-2 rounded-full hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 active:scale-95"
+              >
+                <Bot className="h-4 w-4" />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side="top" className="text-xs font-medium">
+              llms.txt for AI agents
+            </TooltipContent>
+          </Tooltip>
 
           <Tooltip>
             <TooltipTrigger asChild>

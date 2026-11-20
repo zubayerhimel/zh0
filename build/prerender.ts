@@ -84,3 +84,20 @@ export const prerender = (): Plugin => {
     },
   };
 };
+
+/** Serves llms.txt, llms-full.txt and /blog/<slug>.md from source during `vite dev`. */
+export const agentFilesDev = (): Plugin => ({
+  name: "agent-files-dev",
+  apply: "serve",
+  configureServer(server) {
+    server.middlewares.use(async (req, res, next) => {
+      const file = req.url?.split("?")[0].slice(1) ?? "";
+      if (!/^(llms(-full)?\.txt|blog\/[\w-]+\.md)$/.test(file)) return next();
+      const entry = (await server.ssrLoadModule("/src/entry-server.tsx")) as ServerEntry;
+      const text = entry.textFiles()[file];
+      if (text === undefined) return next();
+      res.setHeader("Content-Type", `${file.endsWith(".md") ? "text/markdown" : "text/plain"}; charset=utf-8`);
+      res.end(text);
+    });
+  },
+});

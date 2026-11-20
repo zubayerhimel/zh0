@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react-swc";
 import { componentTagger } from "lovable-tagger";
 import { defineConfig } from "vite";
-import { prerender } from "./build/prerender";
+import { agentFilesDev, prerender } from "./build/prerender";
 import { seoFiles } from "./build/seo-files";
 
 // https://vitejs.dev/config/
@@ -15,9 +15,14 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react(), tailwindcss(), seoFiles(), prerender(), mode === "development" && componentTagger()].filter(
-    Boolean,
-  ),
+  plugins: [
+    react(),
+    tailwindcss(),
+    seoFiles(),
+    prerender(),
+    agentFilesDev(),
+    mode === "development" && componentTagger(),
+  ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "./src"),
