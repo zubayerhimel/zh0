@@ -1,37 +1,10 @@
 import { Link } from "react-router";
 import { blogs } from "@/data/blogs";
 
-const thoughts = [
-  {
-    text: "The best code is the code you never have to write. The second best is the code someone else maintains.",
-  },
-  {
-    text: "I don't believe in 10x engineers. I believe in engineers who remove 10x the unnecessary complexity.",
-  },
-  {
-    text: "Your side project doesn't need a microservices architecture. It needs to ship.",
-  },
-  {
-    text: "Reading documentation is a superpower. Most bugs are just unread README files.",
-  },
-];
-
-const ThoughtsAndBlogsSection = () => {
+const WritingSection = () => {
   return (
     <section className="py-24">
       <div className="container max-w-5xl mx-auto px-6">
-        {/* Thoughts */}
-        <h2 className="text-5xl md:text-6xl font-display font-light text-foreground mb-16 italic">Thoughts</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
-          {thoughts.map((thought) => (
-            <blockquote key={thought.text} className="border-l-2 border-foreground pl-6 py-2">
-              <p className="font-display text-lg text-foreground italic leading-relaxed">"{thought.text}"</p>
-            </blockquote>
-          ))}
-        </div>
-
-        {/* Blogs */}
         <h2 className="text-5xl md:text-6xl font-display font-light text-foreground mb-16 italic">Writing</h2>
 
         <div className="space-y-0">
@@ -62,4 +35,4 @@ const ThoughtsAndBlogsSection = () => {
   );
 };
 
-export default ThoughtsAndBlogsSection;
+export default WritingSection;

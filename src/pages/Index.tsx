@@ -4,7 +4,7 @@ import HeroIntro from "@/components/HeroIntro";
 import ProjectsSection from "@/components/ProjectsSection";
 import Seo from "@/components/Seo";
 import TechStackSection from "@/components/TechStackSection";
-import ThoughtsAndBlogsSection from "@/components/ThoughtsAndBlogsSection";
+import WritingSection from "@/components/WritingSection";
 
 const Index = () => {
   return (
@@ -17,7 +17,7 @@ const Index = () => {
       <ExperienceSection />
       <TechStackSection />
       <ProjectsSection />
-      <ThoughtsAndBlogsSection />
+      <WritingSection />
       <FooterSection />
     </div>
   );
