@@ -1,5 +1,5 @@
 import { ArrowLeft, ExternalLink } from "lucide-react";
-import { type ComponentProps, useEffect } from "react";
+import { type ComponentProps, isValidElement, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { Link, useParams } from "react-router";
 import remarkGfm from "remark-gfm";
@@ -8,9 +8,11 @@ import Seo from "@/components/Seo";
 import { blogs } from "@/data/blogs";
 import { blogMarkdown } from "@/lib/llms";
 
-// Custom renderer for code blocks
-const CodeBlock = ({ className, children }: ComponentProps<"code">) => {
-  const match = /language-(\w+)/.exec(className || "");
+// Fenced code blocks arrive as <pre><code>; unwrap the inner <code> so inline code can render differently.
+const CodeBlock = ({ children }: ComponentProps<"pre">) => {
+  const code = isValidElement<ComponentProps<"code">>(children) ? children.props : { children };
+  const className = code.className || "";
+  const match = /language-([\w-]+)/.exec(className);
   const language = match ? match[1] : "";
 
   return (
@@ -22,12 +24,19 @@ const CodeBlock = ({ className, children }: ComponentProps<"code">) => {
       )}
       <pre className="bg-card/50 p-6 overflow-x-auto">
         <code className={`font-mono text-sm text-foreground leading-relaxed whitespace-pre ${className}`}>
-          {children}
+          {code.children}
         </code>
       </pre>
     </div>
   );
 };
+
+const InlineCode = ({ node, ...props }: ComponentProps<"code"> & { node?: unknown }) => (
+  <code
+    className="font-mono text-[0.9em] text-foreground bg-card border border-border rounded px-1.5 py-0.5"
+    {...props}
+  />
+);
 
 const BlogDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -141,7 +150,8 @@ const BlogDetail = () => {
                   {...props}
                 />
               ),
-              code: CodeBlock,
+              pre: CodeBlock,
+              code: InlineCode,
               img: ({ node, ...props }) => (
                 <figure className="my-10">
                   <img className="w-full rounded-lg border border-border" {...props} alt={props.alt} />
