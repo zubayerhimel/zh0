@@ -1,35 +1,14 @@
 import { ArrowLeft, ExternalLink } from "lucide-react";
-import { type ComponentProps, isValidElement, useEffect } from "react";
+import { type ComponentProps, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { Link, useParams } from "react-router";
 import remarkGfm from "remark-gfm";
+import CodeBlock from "@/components/CodeBlock";
 import CopyForAgentsButton from "@/components/CopyForAgentsButton";
 import Seo from "@/components/Seo";
 import { blogs } from "@/data/blogs";
+import { rehypeHighlight } from "@/lib/highlight";
 import { blogMarkdown } from "@/lib/llms";
-
-// Fenced code blocks arrive as <pre><code>; unwrap the inner <code> so inline code can render differently.
-const CodeBlock = ({ children }: ComponentProps<"pre">) => {
-  const code = isValidElement<ComponentProps<"code">>(children) ? children.props : { children };
-  const className = code.className || "";
-  const match = /language-([\w-]+)/.exec(className);
-  const language = match ? match[1] : "";
-
-  return (
-    <div className="my-8 rounded border border-border overflow-hidden">
-      {language && (
-        <div className="bg-card px-4 py-2 border-b border-border flex items-center gap-2">
-          <span className="font-mono text-xs text-muted-foreground">{language}</span>
-        </div>
-      )}
-      <pre className="bg-card/50 p-6 overflow-x-auto">
-        <code className={`font-mono text-sm text-foreground leading-relaxed whitespace-pre ${className}`}>
-          {code.children}
-        </code>
-      </pre>
-    </div>
-  );
-};
 
 const InlineCode = ({ node, ...props }: ComponentProps<"code"> & { node?: unknown }) => (
   <code
@@ -104,6 +83,7 @@ const BlogDetail = () => {
         <div className="font-body text-base text-foreground/85 dark:text-foreground/65 leading-[1.8]">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeHighlight]}
             components={{
               h1: ({ node, ...props }) => (
                 <h1 className="font-display text-3xl md:text-4xl font-light text-foreground mt-14 mb-4" {...props} />

@@ -111,6 +111,93 @@
   }
 }
 
+/* Syntax highlighting (rehype-highlight / highlight.js token classes) */
+:root {
+  --code-comment: 0 0% 45%;
+  --code-keyword: 354 66% 47%;
+  --code-string: 212 92% 28%;
+  --code-title: 274 45% 45%;
+  --code-attr: 212 100% 39%;
+  --code-literal: 212 100% 39%;
+  --code-variable: 24 100% 35%;
+  --code-built-in: 24 100% 35%;
+  --code-addition: 137 66% 30%;
+}
+
+.dark {
+  --code-comment: 0 0% 52%;
+  --code-keyword: 2 100% 70%;
+  --code-string: 212 100% 82%;
+  --code-title: 268 100% 82%;
+  --code-attr: 212 100% 70%;
+  --code-literal: 212 100% 70%;
+  --code-variable: 30 100% 65%;
+  --code-built-in: 30 100% 65%;
+  --code-addition: 137 55% 62%;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: hsl(var(--code-comment));
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-meta .hljs-keyword,
+.hljs-deletion {
+  color: hsl(var(--code-keyword));
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-meta .hljs-string {
+  color: hsl(var(--code-string));
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.function_,
+.hljs-section {
+  color: hsl(var(--code-title));
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-property,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-meta {
+  color: hsl(var(--code-attr));
+}
+
+.hljs-literal,
+.hljs-number,
+.hljs-symbol,
+.hljs-type {
+  color: hsl(var(--code-literal));
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-params,
+.hljs-built_in {
+  color: hsl(var(--code-built-in));
+}
+
+.hljs-addition {
+  color: hsl(var(--code-addition));
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 600;
+}
+
 /* biome-ignore-start lint/complexity/noImportantStyles: must override utility-class animations and transitions */
 @media (prefers-reduced-motion: reduce) {
   *,
