@@ -14,9 +14,9 @@ const Index = () => {
         description="Zubayer Alam is a product engineer in Dhaka and co-founder of Devfik, building fast, accessible web apps with React, Next.js and TypeScript."
       />
       <HeroIntro />
+      <ProjectsSection />
       <ExperienceSection />
       <TechStackSection />
-      <ProjectsSection />
       <WritingSection />
       <FooterSection />
     </div>
