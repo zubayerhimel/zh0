@@ -18,8 +18,11 @@ export const parseFrontmatter = (fileContent: string): { data: BlogFrontmatter; 
     if (separator === -1) continue;
     const key = line.slice(0, separator).trim();
     let value = line.slice(separator + 1).trim();
-    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
-      value = value.slice(1, -1);
+    // YAML quoting: escapes work inside double quotes ("\""), and a doubled quote inside single quotes ('it''s').
+    if (value.length >= 2 && value.startsWith('"') && value.endsWith('"')) {
+      value = value.slice(1, -1).replace(/\\(["\\])/g, "$1");
+    } else if (value.length >= 2 && value.startsWith("'") && value.endsWith("'")) {
+      value = value.slice(1, -1).replace(/''/g, "'");
     }
     data[key] = value;
   }

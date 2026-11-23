@@ -20,4 +20,11 @@ describe("parseFrontmatter", () => {
     expect(data).toEqual({ title: "A: B", slug: "a-b" });
     expect(content).toBe("Body");
   });
+
+  it("unescapes quotes inside quoted values", () => {
+    const { data } = parseFrontmatter(
+      `---\nexcerpt: "No more \\"Repository not found\\"."\ntitle: 'It''s fine'\n---\n`,
+    );
+    expect(data).toEqual({ excerpt: 'No more "Repository not found".', title: "It's fine" });
+  });
 });
