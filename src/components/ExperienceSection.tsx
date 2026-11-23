@@ -1,3 +1,4 @@
+import { Section, SectionHeading } from "@/components/Section";
 import { type Job, jobs, type Role } from "@/data/experience";
 import { formatDuration, formatMonth, formatYears } from "@/lib/month-span";
 
@@ -112,18 +113,16 @@ const JobRow = ({ job }: { job: Job }) => {
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24 scroll-mt-4">
-      <div className="container max-w-5xl mx-auto px-6">
-        <h2 className="text-5xl md:text-6xl font-display font-light text-foreground mb-16 italic">Experience</h2>
+    <Section id="experience">
+      <SectionHeading title="Experience" />
 
-        <ul>
-          {jobs.map((job) => (
-            <JobRow key={job.company} job={job} />
-          ))}
-        </ul>
-        <div className="border-t border-border" />
-      </div>
-    </section>
+      <ul>
+        {jobs.map((job) => (
+          <JobRow key={job.company} job={job} />
+        ))}
+      </ul>
+      <div className="border-t border-border" />
+    </Section>
   );
 };
 

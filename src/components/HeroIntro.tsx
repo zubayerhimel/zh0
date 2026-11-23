@@ -1,20 +1,14 @@
 import { ArrowUpRight, Check, Copy } from "lucide-react";
 import * as m from "motion/react-m";
-import { useState } from "react";
 import portrait from "@/assets/portrait.webp";
+import { EMAIL } from "@/data/contact";
+import { useCopy } from "@/hooks/use-copy";
 
 const HeroIntro = () => {
-  const [copied, setCopied] = useState(false);
+  const { copied, copy } = useCopy();
 
-  const handleCopyEmail = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    try {
-      await navigator.clipboard.writeText("zubayerhimel0@gmail.com");
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      window.location.href = "mailto:zubayerhimel0@gmail.com";
-    }
+  const handleCopyEmail = async () => {
+    if (!(await copy(EMAIL))) window.location.href = `mailto:${EMAIL}`;
   };
 
   return (
@@ -144,7 +138,7 @@ const HeroIntro = () => {
               </a>
               <div className="group flex items-center gap-1 group/email">
                 <a
-                  href="mailto:zubayerhimel0@gmail.com"
+                  href={`mailto:${EMAIL}`}
                   className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 flex gap-1 items-center"
                 >
                   Email

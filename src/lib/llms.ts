@@ -1,16 +1,12 @@
 // Builds /llms.txt (https://llmstxt.org): a plain Markdown summary of the site for AI agents.
 import { SITE_URL } from "@/components/Seo";
 import type { Blog } from "@/data/blogs";
+import { EMAIL, SOCIAL_LINKS } from "@/data/contact";
 import type { Job } from "@/data/experience";
 import type { Project } from "@/data/projects";
 import { formatMonth } from "@/lib/month-span";
 
-const CONTACT_LINKS = [
-  { label: "GitHub", url: "https://github.com/zubayerhimel" },
-  { label: "LinkedIn", url: "https://linkedin.com/in/zubayerhimel" },
-  { label: "X (Twitter)", url: "https://twitter.com/zubayerhimel0" },
-  { label: "Email", url: "mailto:zubayerhimel0@gmail.com" },
-];
+const CONTACT_LINKS = [...SOCIAL_LINKS, { label: "Email", url: `mailto:${EMAIL}` }];
 
 const range = (start: string, end?: string) => `${formatMonth(start)} – ${end ? formatMonth(end) : "present"}`;
 

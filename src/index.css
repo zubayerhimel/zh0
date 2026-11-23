@@ -18,6 +18,10 @@
   --font-display: "Cormorant Garamond", serif;
   --font-body: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  --font-hand: "Caveat", cursive;
+
+  /* Pen-blue for handwritten margin notes, the only colour on the page. */
+  --color-ink: hsl(var(--ink));
 
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
@@ -61,6 +65,8 @@
 
     --border: 0 0% 88%;
 
+    --ink: 224 64% 42%;
+
     --radius: 0rem;
   }
 
@@ -80,6 +86,8 @@
     --muted-foreground: 0 0% 64%;
 
     --border: 0 0% 18%;
+
+    --ink: 218 80% 72%;
   }
 }
 
@@ -210,3 +218,35 @@
   }
 }
 /* biome-ignore-end lint/complexity/noImportantStyles: end reduced-motion overrides */
+
+/* List rows whose hover background bleeds past the text into the container padding, while borders stay aligned. */
+@utility row-hover {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline: -1.5rem;
+    z-index: -1;
+    background: var(--color-card);
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+
+  &:hover::before,
+  &:has(a:hover)::before,
+  &:has(:focus-visible)::before {
+    opacity: 1;
+  }
+}
+
+.command-list [cmdk-group-heading] {
+  padding: 0.75rem 0.75rem 0.375rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
