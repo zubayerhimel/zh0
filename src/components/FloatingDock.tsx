@@ -1,5 +1,6 @@
-import { Bot, BriefcaseBusiness, Home, Mail, Moon, NotebookText, Sun } from "lucide-react";
+import { Bot, BriefcaseBusiness, Home, Mail, Moon, NotebookText, Search, Sun } from "lucide-react";
 import { Link, useLocation } from "react-router";
+import { useModKey, useOpenCommandMenu } from "@/hooks/use-command-menu";
 import { useTheme } from "@/hooks/use-theme";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
@@ -7,6 +8,8 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/t
 export const FloatingDock = () => {
   const { resolvedTheme, setTheme } = useTheme();
   const location = useLocation();
+  const openCommandMenu = useOpenCommandMenu();
+  const modKey = useModKey();
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
@@ -56,6 +59,22 @@ export const FloatingDock = () => {
           ))}
 
           <div className="w-px h-6 bg-border mx-1" />
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                type="button"
+                onClick={openCommandMenu}
+                aria-label="Search the site"
+                className="p-2 rounded-full hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 active:scale-95"
+              >
+                <Search className="h-4 w-4" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent side="top" className="text-xs font-medium">
+              Search <kbd className="ml-1 font-mono text-[10px] text-muted-foreground">{modKey} K</kbd>
+            </TooltipContent>
+          </Tooltip>
 
           <Tooltip>
             <TooltipTrigger asChild>
