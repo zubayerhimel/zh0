@@ -11,6 +11,10 @@ export default defineConfig({
     include: ["src/**/*.{test,spec}.{ts,tsx}"],
   },
   resolve: {
-    alias: { "@": path.resolve(import.meta.dirname, "./src") },
+    alias: {
+      "@": path.resolve(import.meta.dirname, "./src"),
+      // Tests never hit the network; build/site-stats.ts serves this module in real builds.
+      "virtual:site-stats": path.resolve(import.meta.dirname, "./src/test/site-stats.fixture.ts"),
+    },
   },
 });

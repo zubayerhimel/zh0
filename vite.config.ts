@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 import { defineConfig } from "vite";
 import { agentFilesDev, prerender } from "./build/prerender.ts";
 import { seoFiles } from "./build/seo-files.ts";
+import { siteStats } from "./build/site-stats.ts";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -18,6 +19,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     tailwindcss(),
+    siteStats(),
     seoFiles(),
     prerender(),
     agentFilesDev(),
