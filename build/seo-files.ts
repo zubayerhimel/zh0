@@ -23,35 +23,31 @@ const readPosts = (dir: string) =>
     .filter((post) => post.slug)
     .sort((a, b) => (b.published?.getTime() ?? 0) - (a.published?.getTime() ?? 0));
 
-/** Emits sitemap.xml and rss.xml from src/content/blogs at build time. */
-export const seoFiles = (): Plugin => ({
-  name: "seo-files",
-  apply: (_config, env) => env.command === "build" && !env.isSsrBuild,
-  generateBundle() {
-    const blogDir = path.resolve(import.meta.dirname, "../src/content/blogs");
-    const posts = readPosts(blogDir);
-    const day = (date: Date | null) => date?.toISOString().slice(0, 10);
+const buildFiles = () => {
+  const blogDir = path.resolve(import.meta.dirname, "../src/content/blogs");
+  const posts = readPosts(blogDir);
+  const day = (date: Date | null) => date?.toISOString().slice(0, 10);
 
-    const urls = [
-      { loc: "/", lastmod: day(posts[0]?.published ?? null) },
-      { loc: "/blogs", lastmod: day(posts[0]?.published ?? null) },
-      ...posts.map((post) => ({ loc: `/blog/${post.slug}`, lastmod: day(post.published) })),
-    ];
-    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  const urls = [
+    { loc: "/", lastmod: day(posts[0]?.published ?? null) },
+    { loc: "/blogs", lastmod: day(posts[0]?.published ?? null) },
+    ...posts.map((post) => ({ loc: `/blog/${post.slug}`, lastmod: day(post.published) })),
+  ];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `  <url><loc>${SITE_URL}${u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ""}</url>`).join("\n")}
 </urlset>
 `;
 
-    const items = posts.map(
-      (post) => `    <item>
+  const items = posts.map(
+    (post) => `    <item>
       <title>${escapeXml(post.title)}</title>
       <link>${SITE_URL}/blog/${post.slug}</link>
       <guid>${SITE_URL}/blog/${post.slug}</guid>
       <description>${escapeXml(post.excerpt)}</description>${post.published ? `\n      <pubDate>${post.published.toUTCString()}</pubDate>` : ""}
     </item>`,
-    );
-    const rss = `<?xml version="1.0" encoding="UTF-8"?>
+  );
+  const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zubayer Alam — Writing</title>
@@ -64,7 +60,24 @@ ${items.join("\n")}
 </rss>
 `;
 
-    this.emitFile({ type: "asset", fileName: "sitemap.xml", source: sitemap });
-    this.emitFile({ type: "asset", fileName: "rss.xml", source: rss });
+  return { "sitemap.xml": sitemap, "rss.xml": rss };
+};
+
+/** Emits sitemap.xml and rss.xml from src/content/blogs at build time, and serves them during `vite dev`. */
+export const seoFiles = (): Plugin => ({
+  name: "seo-files",
+  apply: (_config, env) => !env.isSsrBuild,
+  configureServer(server) {
+    server.middlewares.use((req, res, next) => {
+      const file = req.url?.split("?")[0].slice(1);
+      if (file !== "rss.xml" && file !== "sitemap.xml") return next();
+      res.setHeader("Content-Type", "application/xml; charset=utf-8");
+      res.end(buildFiles()[file]);
+    });
+  },
+  generateBundle() {
+    for (const [fileName, source] of Object.entries(buildFiles())) {
+      this.emitFile({ type: "asset", fileName, source });
+    }
   },
 });
