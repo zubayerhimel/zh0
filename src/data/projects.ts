@@ -1,5 +1,6 @@
 import autoBookmark from "@/assets/projects/auto-bookmark.webp";
 import bookify from "@/assets/projects/bookify.webp";
+import dotcrypt from "@/assets/projects/dotcrypt.webp";
 import fling from "@/assets/projects/fling.webp";
 import lettercn from "@/assets/projects/lettercn.webp";
 import mailframe from "@/assets/projects/mailframe.webp";
@@ -33,6 +34,16 @@ export const projects: Project[] = [
     url: "https://ogee.zh0.dev",
     image: ogee,
     source: "https://github.com/zubayerhimel/ogee",
+  },
+  {
+    title: "dotcrypt",
+    kind: "CLI and npm package",
+    description:
+      "Keep .env files in sync across machines and teammates through the Git repo you already have. Plaintext files stay local; only AES-256-GCM encrypted copies are committed, with one password per environment. No server or account, and a local dashboard shows what changed and the next command to run.",
+    stack: ["Node.js", "JavaScript", "Commander", "node:crypto", "React", "Vite", "shadcn/ui", "Tailwind CSS"],
+    url: "https://www.npmjs.com/package/dotcrypt",
+    image: dotcrypt,
+    source: "https://github.com/zubayerhimel/dotcrypt",
   },
   {
     title: "Fling",
