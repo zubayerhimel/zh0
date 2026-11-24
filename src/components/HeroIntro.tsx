@@ -1,6 +1,7 @@
 import { ArrowUpRight, Check, Copy } from "lucide-react";
 import * as m from "motion/react-m";
-import portrait from "@/assets/portrait.webp";
+import HeroMonogram from "@/components/HeroMonogram";
+import { MarginNote } from "@/components/MarginNote";
 import { EMAIL } from "@/data/contact";
 import { useCopy } from "@/hooks/use-copy";
 
@@ -19,22 +20,18 @@ const HeroIntro = () => {
 
       <div className="container max-w-6xl mx-auto px-6 py-24 z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
-          {/* Portrait Column */}
+          {/* Monogram Column */}
           <m.div
             initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="md:col-span-4 flex justify-center md:justify-end relative group perspective-1000"
+            className="md:col-span-5 flex flex-col items-center md:items-end gap-10"
           >
-            <div className="relative w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden shadow-2xl transition-all duration-700 hover:shadow-primary/20 hover:-translate-y-2">
-              <img
-                src={portrait}
-                alt="Zubayer Alam"
-                width={768}
-                height={768}
-                fetchPriority="high"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-              />
+            <div className="relative w-80 max-w-full md:w-full md:max-w-[26rem]">
+              <HeroMonogram className="w-full h-auto text-foreground" />
+              <MarginNote arrow="up-right" className="-left-6 -bottom-24">
+                {"it turns away\nfrom your cursor"}
+              </MarginNote>
             </div>
 
             {/* Status Badge */}
@@ -42,7 +39,7 @@ const HeroIntro = () => {
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
-              className="absolute -bottom-5 right-10 md:-bottom-6 md:-right-6 bg-background/80 backdrop-blur-md border border-border shadow-xl rounded-full px-4 py-2.5 flex items-center gap-2.5 z-20"
+              className="bg-background/80 backdrop-blur-md border border-border shadow-xl rounded-full px-4 py-2.5 flex items-center gap-2.5"
             >
               <div className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -55,7 +52,7 @@ const HeroIntro = () => {
           </m.div>
 
           {/* Text Column */}
-          <div className="md:col-span-8 space-y-8 md:space-y-10 lg:pl-8">
+          <div className="md:col-span-7 space-y-8 md:space-y-10 lg:pl-8">
             <div className="space-y-4">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
