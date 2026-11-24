@@ -7,6 +7,7 @@ import mailframe from "@/assets/projects/mailframe.webp";
 import memoryBooth from "@/assets/projects/memorybooth.webp";
 import nudge from "@/assets/projects/nudge.webp";
 import ogee from "@/assets/projects/ogee.webp";
+import schemaweave from "@/assets/projects/schemaweave.webp";
 
 export interface Project {
   title: string;
@@ -25,6 +26,15 @@ export interface Project {
 
 // Newest first.
 export const projects: Project[] = [
+  {
+    title: "Schemaweave",
+    kind: "Web app",
+    description:
+      "Turn JSON samples and API responses into TypeScript types, Zod schemas, JSON Schema, mock data, Prisma and Drizzle models, and OpenAPI. Paste JSON, import files or a cURL command, and it infers a schema you can refine, then export to any target. Runs entirely in your browser.",
+    stack: ["React", "TypeScript", "Vite", "Zod", "IndexedDB", "Tailwind CSS"],
+    url: "https://schemaweave.zh0.dev",
+    image: schemaweave,
+  },
   {
     title: "OGee",
     kind: "Web app",
