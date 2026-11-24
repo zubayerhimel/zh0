@@ -152,6 +152,7 @@ const CommandMenu = ({ open, onOpenChange }: { open: boolean; onOpenChange: (ope
               <Command.Group heading="Settings">
                 <Item
                   icon={SunMoon}
+                  hint="D"
                   keywords={["theme", "dark", "light", "mode"]}
                   onSelect={run(() => setTheme(resolvedTheme === "dark" ? "light" : "dark"))}
                 >

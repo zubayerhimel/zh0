@@ -108,7 +108,8 @@ export const FloatingDock = () => {
               </button>
             </TooltipTrigger>
             <TooltipContent side="top" className="text-xs font-medium">
-              {resolvedTheme === "dark" ? "Light theme" : "Dark theme"}
+              {resolvedTheme === "dark" ? "Light theme" : "Dark theme"}{" "}
+              <kbd className="ml-1 font-mono text-[10px] text-muted-foreground">D</kbd>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>

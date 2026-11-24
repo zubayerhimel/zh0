@@ -1,12 +1,9 @@
 import type React from "react";
 import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { CommandMenuContext } from "@/hooks/use-command-menu";
+import { isTyping } from "@/lib/utils";
 
 const CommandMenu = lazy(() => import("./CommandMenu"));
-
-const isTyping = (target: EventTarget | null) =>
-  target instanceof HTMLElement &&
-  (target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName));
 
 /** Provides the site-wide command menu, opened with ⌘K / Ctrl+K, "/" or `useOpenCommandMenu()` (hooks/use-command-menu). */
 export const CommandMenuProvider = ({ children }: { children: React.ReactNode }) => {

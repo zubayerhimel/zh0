@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { type ResolvedTheme, type Theme, ThemeProviderContext } from "@/hooks/use-theme";
+import { isTyping } from "@/lib/utils";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
@@ -23,12 +24,39 @@ export function ThemeProvider({
   const [systemTheme, setSystemTheme] = useState<ResolvedTheme>(getSystemTheme);
   const resolvedTheme = theme === "system" ? systemTheme : theme;
 
+  const saveTheme = useCallback(
+    (next: Theme) => {
+      localStorage.setItem(storageKey, next);
+      setTheme(next);
+    },
+    [storageKey],
+  );
+
   useEffect(() => {
     const media = window.matchMedia(darkQuery);
     const onChange = () => setSystemTheme(getSystemTheme());
     media.addEventListener("change", onChange);
     return () => media.removeEventListener("change", onChange);
   }, []);
+
+  // "D" flips between light and dark.
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (
+        event.key.toLowerCase() !== "d" ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.altKey ||
+        event.repeat ||
+        event.defaultPrevented ||
+        isTyping(event.target)
+      )
+        return;
+      saveTheme(resolvedTheme === "dark" ? "light" : "dark");
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [resolvedTheme, saveTheme]);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -37,14 +65,7 @@ export function ThemeProvider({
     root.style.colorScheme = resolvedTheme;
   }, [resolvedTheme]);
 
-  const value = {
-    theme,
-    resolvedTheme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
-    },
-  };
+  const value = { theme, resolvedTheme, setTheme: saveTheme };
 
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
