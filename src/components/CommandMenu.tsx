@@ -78,9 +78,9 @@ const CommandMenu = ({ open, onOpenChange }: { open: boolean; onOpenChange: (ope
           <Command loop className="flex max-h-[min(32rem,76vh)] flex-col">
             <Command.Input
               placeholder="Search projects, posts and pages…"
-              className="w-full border-b border-border bg-transparent px-5 py-4 font-display text-xl italic text-foreground outline-none placeholder:text-muted-foreground/60"
+              className="w-full border-b border-border bg-transparent px-5 py-4 font-body text-base text-foreground outline-none placeholder:text-muted-foreground"
             />
-            <Command.List className="command-list flex-1 overflow-y-auto overscroll-contain p-2">
+            <Command.List className="command-list flex-1 overflow-y-auto overscroll-contain p-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <Command.Empty className="px-3 py-10 text-center font-mono text-xs text-muted-foreground">
                 Nothing matches that.
               </Command.Empty>
