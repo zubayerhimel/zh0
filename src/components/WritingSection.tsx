@@ -15,7 +15,7 @@ const WritingSection = () => {
             className="row-hover border-t border-border py-8 grid grid-cols-1 md:grid-cols-4 gap-4 group"
           >
             <div className="md:col-span-1">
-              <span className="font-mono text-xs text-muted-foreground">{blog.date}</span>
+              <span className="font-body text-xs text-muted-foreground">{blog.date}</span>
             </div>
             <div className="md:col-span-3">
               <h3 className="font-display text-2xl text-foreground">

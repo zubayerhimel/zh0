@@ -31,7 +31,7 @@ const StatsStrip = () => (
             i > 0 && "md:border-l",
           )}
         >
-          <dt className="font-mono text-xs text-muted-foreground">{item.label}</dt>
+          <dt className="font-body text-sm text-muted-foreground">{item.label}</dt>
           <dd className="font-display text-5xl md:text-6xl font-light italic text-foreground leading-none">
             {item.value}
           </dd>

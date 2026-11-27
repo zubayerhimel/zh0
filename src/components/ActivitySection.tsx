@@ -88,7 +88,7 @@ const ActivitySection = () => {
             onPointerOver={onPointerOver}
             onPointerLeave={() => setHovered(null)}
             aria-label={`GitHub contribution graph: ${total} contributions in the last year`}
-            className="grid w-max grid-cols-[auto_1fr] gap-x-2 [--cell:12px] lg:[--cell:14px] font-mono text-[10px] text-muted-foreground"
+            className="grid w-max grid-cols-[auto_1fr] gap-x-2 [--cell:12px] lg:[--cell:14px] font-body text-[10px] tabular-nums text-muted-foreground"
           >
             <span />
             <div className="relative h-4">
@@ -140,7 +140,7 @@ const ActivitySection = () => {
         {hovered && (
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-sm bg-foreground px-2.5 py-1.5 font-mono text-[11px] text-background shadow-lg"
+            className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-sm bg-foreground px-2.5 py-1.5 font-body text-xs text-background shadow-lg"
             style={{ left: hovered.x, top: hovered.y - 8 }}
           >
             <span className="font-medium">{countLabel(hovered.day.count)}</span>
@@ -148,7 +148,7 @@ const ActivitySection = () => {
           </div>
         )}
 
-        <figcaption className="mt-4 flex items-center justify-end gap-1.5 font-mono text-[10px] text-muted-foreground">
+        <figcaption className="mt-4 flex items-center justify-end gap-1.5 font-body text-[10px] text-muted-foreground">
           Less
           {LEVELS.map((level) => (
             <span key={level} aria-hidden="true" className={cn("size-3 rounded-[2px]", level)} />

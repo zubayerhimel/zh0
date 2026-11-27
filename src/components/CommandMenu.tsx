@@ -49,7 +49,7 @@ const Item = ({
   >
     <Icon className="size-4 shrink-0" />
     <span className="truncate">{children}</span>
-    {hint && <span className="ml-auto shrink-0 pl-4 font-mono text-[10px] text-muted-foreground">{hint}</span>}
+    {hint && <span className="ml-auto shrink-0 pl-4 font-body text-xs text-muted-foreground">{hint}</span>}
   </Command.Item>
 );
 
@@ -81,7 +81,7 @@ const CommandMenu = ({ open, onOpenChange }: { open: boolean; onOpenChange: (ope
               className="w-full border-b border-border bg-transparent px-5 py-4 font-body text-base text-foreground outline-none placeholder:text-muted-foreground"
             />
             <Command.List className="command-list flex-1 overflow-y-auto overscroll-contain p-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <Command.Empty className="px-3 py-10 text-center font-mono text-xs text-muted-foreground">
+              <Command.Empty className="px-3 py-10 text-center font-body text-sm text-muted-foreground">
                 Nothing matches that.
               </Command.Empty>
 
@@ -161,7 +161,7 @@ const CommandMenu = ({ open, onOpenChange }: { open: boolean; onOpenChange: (ope
               </Command.Group>
             </Command.List>
 
-            <div className="flex items-center justify-between gap-4 border-t border-border px-4 py-2.5 font-mono text-[10px] text-muted-foreground">
+            <div className="flex items-center justify-between gap-4 border-t border-border px-4 py-2.5 font-body text-xs text-muted-foreground">
               <span className="flex items-center gap-1.5">
                 <CornerDownLeft className="size-3" /> to select
               </span>

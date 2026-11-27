@@ -40,7 +40,7 @@ const FooterSection = () => {
           </MarginNote>
         </div>
 
-        <div className="mt-20 md:mt-28 flex flex-col-reverse gap-6 border-t border-border pt-6 font-mono text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+        <div className="mt-20 md:mt-28 flex flex-col-reverse gap-6 border-t border-border pt-6 font-body text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p>
             © {year} Zubayer Alam <span className="mx-2 opacity-50">·</span> Dhaka, Bangladesh
           </p>

@@ -85,7 +85,7 @@ const TechStackSection = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         {techStack.map((category) => (
           <div key={category.category} className="space-y-6">
-            <h3 className="font-mono text-xs text-muted-foreground uppercase tracking-widest pb-4 border-b border-border">
+            <h3 className="font-body text-sm font-medium text-foreground pb-4 border-b border-border">
               {category.category}
             </h3>
             <ul className="space-y-4">

@@ -72,7 +72,7 @@ export const FloatingDock = () => {
               </button>
             </TooltipTrigger>
             <TooltipContent side="top" className="text-xs font-medium">
-              Search <kbd className="ml-1 font-mono text-[10px] text-muted-foreground">{modKey} K</kbd>
+              Search <kbd className="ml-1 font-body text-[10px] text-muted-foreground">{modKey} K</kbd>
             </TooltipContent>
           </Tooltip>
 
@@ -109,7 +109,7 @@ export const FloatingDock = () => {
             </TooltipTrigger>
             <TooltipContent side="top" className="text-xs font-medium">
               {resolvedTheme === "dark" ? "Light theme" : "Dark theme"}{" "}
-              <kbd className="ml-1 font-mono text-[10px] text-muted-foreground">D</kbd>
+              <kbd className="ml-1 font-body text-[10px] text-muted-foreground">D</kbd>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>

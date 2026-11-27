@@ -18,10 +18,7 @@ const LocalClock = () => {
   }, []);
 
   return (
-    <p
-      className="font-mono text-xs tracking-widest text-muted-foreground"
-      title="My local time in Dhaka, Bangladesh (GMT+6)"
-    >
+    <p className="font-body text-xs text-muted-foreground" title="My local time in Dhaka, Bangladesh (GMT+6)">
       <span className="opacity-60">Dhaka</span> <time className="tabular-nums">{time}</time>
     </p>
   );

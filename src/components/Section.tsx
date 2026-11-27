@@ -24,7 +24,9 @@ export const SectionHeading = ({
     <h2 className="text-5xl md:text-6xl font-display font-light italic text-foreground">
       {title}
       {count !== undefined && (
-        <sup className="ml-2 font-mono text-xs not-italic tracking-normal text-muted-foreground">({count})</sup>
+        <sup className="ml-2 font-body text-xs not-italic tracking-normal tabular-nums text-muted-foreground">
+          ({count})
+        </sup>
       )}
     </h2>
     {description && (

@@ -45,9 +45,7 @@ const HeroIntro = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500 m-auto"></span>
               </div>
-              <span className="text-xs font-mono font-medium tracking-tight text-foreground/90">
-                Available for work
-              </span>
+              <span className="font-body text-xs font-medium text-foreground/90">Available for work</span>
             </m.div>
           </m.div>
 
@@ -110,7 +108,7 @@ const HeroIntro = () => {
                 href="https://github.com/zubayerhimel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 group flex gap-1 items-center"
+                className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 group flex gap-1 items-center"
               >
                 GitHub
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-transform duration-300 transition-all" />
@@ -119,7 +117,7 @@ const HeroIntro = () => {
                 href="https://linkedin.com/in/zubayerhimel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 group flex gap-1 items-center"
+                className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 group flex gap-1 items-center"
               >
                 LinkedIn
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-transform duration-300 transition-all" />
@@ -128,7 +126,7 @@ const HeroIntro = () => {
                 href="https://twitter.com/zubayerhimel0"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 group flex gap-1 items-center"
+                className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 group flex gap-1 items-center"
               >
                 Twitter/X
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-transform duration-300 transition-all" />
@@ -136,7 +134,7 @@ const HeroIntro = () => {
               <div className="group flex items-center gap-1 group/email">
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 flex gap-1 items-center"
+                  className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 flex gap-1 items-center"
                 >
                   Email
                 </a>

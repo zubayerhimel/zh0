@@ -41,7 +41,7 @@ const CopyCodeButton = ({ code }: { code: string }) => {
       type="button"
       onClick={copy}
       aria-label="Copy code"
-      className="ml-auto inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
+      className="ml-auto inline-flex items-center gap-1.5 font-body text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
     >
       <Icon className="h-3 w-3" aria-hidden="true" />
       <span aria-live="polite">{labels[status]}</span>
@@ -58,7 +58,7 @@ const CodeBlock = ({ children }: ComponentProps<"pre">) => {
   return (
     <div className="my-8 rounded border border-border overflow-hidden">
       <div className="bg-card px-4 py-2 border-b border-border flex items-center gap-2">
-        {language && <span className="font-mono text-xs text-muted-foreground">{language}</span>}
+        {language && <span className="font-body text-xs text-muted-foreground">{language}</span>}
         <CopyCodeButton code={textOf(code.children).replace(/\n$/, "")} />
       </div>
       <pre className="bg-card/50 p-6 overflow-x-auto">

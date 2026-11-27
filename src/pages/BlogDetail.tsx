@@ -32,7 +32,7 @@ const BlogDetail = () => {
         <Seo title="Post not found" path={`/blog/${slug}`} description="This post doesn't exist." noindex />
         <div className="text-center">
           <h1 className="font-display text-4xl mb-4">Post not found</h1>
-          <Link to="/" className="font-mono text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/" className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors">
             ← Back home
           </Link>
         </div>
@@ -55,7 +55,7 @@ const BlogDetail = () => {
         {/* Back link */}
         <Link
           to="/blogs"
-          className="inline-flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-foreground transition-colors mb-16"
+          className="inline-flex items-center gap-2 font-body text-sm text-muted-foreground hover:text-foreground transition-colors mb-16"
         >
           <ArrowLeft className="w-3 h-3" />
           Back to Writing
@@ -64,9 +64,9 @@ const BlogDetail = () => {
         {/* Header */}
         <header className="mb-16">
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-mono text-xs text-muted-foreground">{blog.date}</span>
+            <span className="font-body text-xs text-muted-foreground">{blog.date}</span>
             <span className="text-muted-foreground">·</span>
-            <span className="font-mono text-xs text-muted-foreground">{blog.readTime}</span>
+            <span className="font-body text-xs text-muted-foreground">{blog.readTime}</span>
             <span className="ml-auto">
               <CopyForAgentsButton markdown={blogMarkdown(blog)} />
             </span>
@@ -136,7 +136,7 @@ const BlogDetail = () => {
                 <figure className="my-10">
                   <img className="w-full rounded-lg border border-border" {...props} alt={props.alt} />
                   {props.alt && (
-                    <figcaption className="text-center font-mono text-xs text-muted-foreground mt-3">
+                    <figcaption className="text-center font-body text-xs text-muted-foreground mt-3">
                       {props.alt}
                     </figcaption>
                   )}
@@ -157,7 +157,7 @@ const BlogDetail = () => {
               <Link key={sb.slug} to={`/blog/${sb.slug}`} className="group flex flex-col h-full">
                 <div className="flex-1 flex flex-col">
                   <div className="flex items-start justify-between gap-4 mb-4">
-                    <span className="font-mono text-xs text-muted-foreground bg-muted px-3 py-1 rounded-full">
+                    <span className="font-body text-xs text-muted-foreground bg-muted px-3 py-1 rounded-full">
                       {sb.date}
                     </span>
                   </div>
@@ -166,7 +166,7 @@ const BlogDetail = () => {
                   </h4>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6 flex-1">{sb.excerpt}</p>
                 </div>
-                <div className="inline-flex items-center gap-2 text-primary font-mono text-xs font-medium">
+                <div className="inline-flex items-center gap-2 text-primary font-body text-sm font-medium">
                   Read More
                   <span className="inline-block opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200">
                     →

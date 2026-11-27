@@ -35,7 +35,7 @@ const CopyForAgentsButton = ({ markdown }: { markdown: string }) => {
       type="button"
       onClick={copy}
       title="Copy this post as Markdown"
-      className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 font-mono text-xs text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
+      className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 font-body text-xs text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
     >
       <Icon className="h-3 w-3" aria-hidden="true" />
       <span aria-live="polite">{labels[status]}</span>

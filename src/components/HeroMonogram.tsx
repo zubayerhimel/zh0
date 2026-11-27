@@ -131,7 +131,7 @@ const HeroMonogram = ({ className }: { className?: string }) => {
         <line x1="-400" y1="0" x2="90" y2="0" vectorEffect="non-scaling-stroke" />
         <line x1="-400" y1="-62.5" x2="90" y2="-62.5" vectorEffect="non-scaling-stroke" />
       </g>
-      <g className="fill-muted-foreground font-mono" fontSize="3.2">
+      <g className="fill-muted-foreground font-display italic" fontSize="3.8">
         <text x="-3" y="-1.6" textAnchor="end">
           baseline
         </text>
@@ -194,8 +194,8 @@ const HeroMonogram = ({ className }: { className?: string }) => {
         ref={labelRef}
         x={initial.label.x}
         y={initial.label.y}
-        className="fill-muted-foreground font-mono"
-        fontSize="3.2"
+        className="fill-muted-foreground font-display italic"
+        fontSize="3.8"
         textAnchor="middle"
         dominantBaseline="middle"
       >

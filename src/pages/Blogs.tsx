@@ -14,7 +14,7 @@ const Blogs = () => {
         <div className="mb-20">
           <Link
             to="/"
-            className="text-muted-foreground hover:text-foreground transition-colors font-mono text-sm mb-8 inline-block"
+            className="text-muted-foreground hover:text-foreground transition-colors font-body text-sm mb-8 inline-block"
           >
             ← Back to Home
           </Link>
@@ -32,7 +32,7 @@ const Blogs = () => {
               className="border-t border-border py-12 grid grid-cols-1 md:grid-cols-4 gap-8 group block hover:bg-card/50 transition-colors -mx-6 px-6"
             >
               <div className="md:col-span-1">
-                <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">{blog.date}</span>
+                <span className="font-body text-xs text-muted-foreground tabular-nums">{blog.date}</span>
               </div>
               <div className="md:col-span-3">
                 <h2 className="font-display text-2xl text-foreground">
