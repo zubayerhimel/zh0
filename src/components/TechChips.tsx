@@ -6,7 +6,7 @@ export const TechChips = ({ items, className }: { items: string[]; className?: s
     {items.map((tech) => (
       <li
         key={tech}
-        className="rounded-full border border-border bg-card px-2.5 py-0.5 font-body text-xs leading-5 text-foreground/75"
+        className="inline-flex h-6 items-center rounded-full border border-dashed border-foreground/25 px-2.5 font-body text-xs leading-none text-foreground/75"
       >
         {tech}
       </li>
