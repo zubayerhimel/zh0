@@ -1,3 +1,4 @@
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router";
 import Seo from "@/components/Seo";
 import { blogs } from "@/data/blogs";
@@ -14,9 +15,10 @@ const Blogs = () => {
         <div className="mb-20">
           <Link
             to="/"
-            className="text-muted-foreground hover:text-foreground transition-colors font-body text-sm mb-8 inline-block"
+            className="text-muted-foreground hover:text-foreground transition-colors font-body text-sm mb-8 inline-flex items-center gap-2"
           >
-            ← Back to Home
+            <ArrowLeft className="w-3 h-3" />
+            Back to Home
           </Link>
           <h1 className="text-7xl md:text-8xl font-display font-light text-foreground italic">Writing</h1>
           <p className="font-body text-md text-muted-foreground mt-6 max-w-2xl leading-relaxed">
