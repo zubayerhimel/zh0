@@ -8,7 +8,7 @@ const firstStart = jobs.flatMap((job) => job.roles.map((role) => role.start)).so
 
 const items = [
   firstStart && { value: `${yearsSince(firstStart)}+`, label: "years shipping" },
-  { value: String(projects.length), label: "products launched" },
+  { value: `${projects.length}+`, label: "products launched" },
   stats.contributions && {
     value: compactNumber(stats.contributions.total),
     label: "GitHub contributions this year",
