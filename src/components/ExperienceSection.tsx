@@ -1,9 +1,10 @@
 import { Section, SectionHeading } from "@/components/Section";
+import { TechChips } from "@/components/TechChips";
 import { type Job, jobs, type Role } from "@/data/experience";
 import { formatDuration, formatMonth, formatYears } from "@/lib/month-span";
 
 const RoleDates = ({ role, withDuration }: { role: Role; withDuration: boolean }) => (
-  <p className="font-mono text-xs text-muted-foreground">
+  <p className="font-body text-xs text-muted-foreground tabular-nums">
     <time dateTime={role.start}>{formatMonth(role.start)}</time>
     {" – "}
     {role.end ? <time dateTime={role.end}>{formatMonth(role.end)}</time> : "Present"}
@@ -17,7 +18,7 @@ const RoleDetails = ({ role, inTrack }: { role: Role; inTrack: boolean }) => (
       <h4 className="font-body text-base md:text-lg font-medium text-foreground">{role.title}</h4>
       <RoleDates role={role} withDuration={inTrack} />
     </div>
-    <p className="font-mono text-xs text-muted-foreground mt-1">{role.terms}</p>
+    <p className="font-body text-xs text-muted-foreground mt-1">{role.terms}</p>
     {role.highlights && (
       <ul className="mt-4 space-y-2 max-w-2xl list-disc pl-4 marker:text-muted-foreground/40 font-body text-sm text-muted-foreground leading-relaxed">
         {role.highlights.map((item) => (
@@ -41,8 +42,8 @@ const JobRow = ({ job }: { job: Job }) => {
         <p className="w-full md:w-auto font-display font-light italic text-2xl md:text-3xl text-foreground">
           {formatYears(first.start, end)}
         </p>
-        <p className="font-mono text-xs text-muted-foreground">{formatDuration(first.start, end)}</p>
-        <p className="font-mono text-xs text-muted-foreground">{job.location}</p>
+        <p className="font-body text-xs text-muted-foreground tabular-nums">{formatDuration(first.start, end)}</p>
+        <p className="font-body text-xs text-muted-foreground">{job.location}</p>
       </div>
 
       <div className="md:col-span-3">
@@ -96,16 +97,7 @@ const JobRow = ({ job }: { job: Job }) => {
           </div>
         )}
 
-        {job.stack && (
-          <ul
-            aria-label="Stack"
-            className="flex flex-wrap gap-x-4 gap-y-1 mt-6 font-mono text-xs text-muted-foreground"
-          >
-            {job.stack.map((tech) => (
-              <li key={tech}>{tech}</li>
-            ))}
-          </ul>
-        )}
+        {job.stack && <TechChips items={job.stack} className="mt-8" />}
       </div>
     </li>
   );

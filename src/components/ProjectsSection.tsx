@@ -2,6 +2,7 @@ import { ChevronDown } from "lucide-react";
 import { useId, useState } from "react";
 import { MarginNote } from "@/components/MarginNote";
 import { Section, SectionHeading } from "@/components/Section";
+import { TechChips } from "@/components/TechChips";
 import { projects } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
@@ -32,7 +33,7 @@ const ProjectsSection = () => {
             hidden={!expanded && index >= INITIAL_COUNT}
             className="row-hover border-t border-border py-10 grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8"
           >
-            <div className="font-mono text-xs text-muted-foreground space-y-1 md:pt-2">
+            <div className="font-body text-sm text-muted-foreground space-y-1 md:pt-2">
               <p>{project.kind}</p>
               {project.status && <p className="text-foreground">{project.status}</p>}
             </div>
@@ -62,16 +63,9 @@ const ProjectsSection = () => {
                 <p className="font-body text-sm md:text-base text-muted-foreground mt-3 max-w-2xl leading-relaxed">
                   {project.description}
                 </p>
-                <ul
-                  aria-label="Stack"
-                  className="flex flex-wrap gap-x-4 gap-y-1 mt-5 font-mono text-xs text-muted-foreground"
-                >
-                  {project.stack.map((tech) => (
-                    <li key={tech}>{tech}</li>
-                  ))}
-                </ul>
+                <TechChips items={project.stack} className="mt-5" />
                 {(project.url || project.source) && (
-                  <div className="flex gap-6 mt-5 font-mono text-xs">
+                  <div className="flex gap-6 mt-5 font-body text-sm">
                     {project.url && (
                       <span className="text-foreground underline underline-offset-4">{new URL(project.url).host}</span>
                     )}
@@ -109,7 +103,7 @@ const ProjectsSection = () => {
           aria-expanded={expanded}
           aria-controls={listId}
           onClick={() => setExpanded((value) => !value)}
-          className="group flex w-full items-center justify-center gap-2 border-y border-border py-5 font-mono text-xs text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
+          className="group flex w-full items-center justify-center gap-2 border-y border-border py-5 font-body text-sm text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
         >
           {expanded ? "Show fewer" : `Show ${hiddenCount} more`}
           <ChevronDown className={cn("size-3.5 transition-transform", expanded && "rotate-180")} />
